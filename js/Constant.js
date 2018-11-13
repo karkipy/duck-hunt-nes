@@ -14,7 +14,7 @@ const GUN_SHOT_INDICATOR = 0;
 
 
 // Sounds
-const GUN_SHOT = 'sounds/shoot_short.mp3';
+const GUN_SHOT = 'sounds/shot_gun.mp3';
 const SOUNDS = [
   {id : GUN_SHOT_INDICATOR, src: GUN_SHOT },
 ];

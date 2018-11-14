@@ -3,6 +3,8 @@ class Player {
     this.ctx = ctx;
     this.x = 50;
     this.y = 50;
+    this.width = DIMESNSION_GUN[0].width;
+    this.height = DIMESNSION_GUN[0].height;
   }
 
   setImage() {
@@ -10,11 +12,11 @@ class Player {
   }
 
   setDirections(x, y) {
-    this.x = x -  CURSOR_WIDTH / 2;
-    this.y = y -  CURSOR_HEIGHT / 2 ;
+    this.x = x -  this.width / 2;
+    this.y = y -  this.height / 2 ;
   }
 
   drawImage() {
-    this.ctx.drawImage(this.image, this.x, this.y, CURSOR_WIDTH , CURSOR_HEIGHT);
+    this.ctx.drawImage(this.image, this.x, this.y, this.width , this.height);
   }
 }

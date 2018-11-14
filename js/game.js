@@ -44,7 +44,7 @@ canvas.addEventListener('mousemove', function(evt) {
 
 canvas.addEventListener('click', function(evt) {
   try {
-    loadedSounds[GUN_SHOT_INDICATOR].play();
+    loadedSounds[0].play();
   } catch(e) {
     console.log(e);
   }

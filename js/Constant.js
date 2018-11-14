@@ -9,14 +9,17 @@ const IMAGES = [
   { id: SPRITE_INDICATOR, src : SPRITES },
   { id: PLAYER_INDICATOR, src: GUN_CURSOR }];
 
-// Sound Indicators
-const GUN_SHOT_INDICATOR = 0;
+// Gun Indicators
+const NORMAL_GUN_INDICATOR = 0;
+const SHOT_GUN_INDICATOR = 1;
 
 
 // Sounds
-const GUN_SHOT = 'sounds/shot_gun.mp3';
+const NORMAL_GUN_SOUND = 'sounds/normal_gun_sound.mp3';
+const SHOT_GUN_SOUND = 'sounds/shot_gun_sound.mp3';
 const SOUNDS = [
-  {id : GUN_SHOT_INDICATOR, src: GUN_SHOT },
+  { id: NORMAL_GUN_INDICATOR, src: NORMAL_GUN_SOUND },
+  { id: SHOT_GUN_INDICATOR, src: SHOT_GUN_SOUND },
 ];
 
 
@@ -24,8 +27,10 @@ const SOUNDS = [
 const SCREEN_WIDTH = 1000;
 const SCREEN_HEIGHT = 600;
 
-const CURSOR_WIDTH = 60;
-const CURSOR_HEIGHT = 60;
+const DIMESNSION_GUN = [
+  { id: NORMAL_GUN_INDICATOR, width: 60, height: 60},
+  { id: SHOT_GUN_INDICATOR, width: 70, height: 70},
+]
 
 const loadedImages = {};
 const loadedSounds = {};

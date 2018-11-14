@@ -11,6 +11,13 @@ function getSpriteObject(sx, sy, sw, sh, dx, dy, dw, dh) {
   }
 }
 
+function updateSpritePosition(spriteObj, x, y) {
+  return {
+    ...spriteObj,
+    placeX: x,
+    placeY: y,
+  }
+}
 
 const STANDARD_FRAME = 60;
 

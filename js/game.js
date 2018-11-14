@@ -3,6 +3,10 @@ const ctx = canvas.getContext('2d');
 
 let animationReq;
 
+// Background of the game
+let background = new BackGround(ctx);
+
+
 // Player and Ducks
 
 let player = new Player(ctx);
@@ -14,12 +18,15 @@ function clearAll(){
 
 function gameLoop() {
   clearAll();
+  background.drawSky();
+  background.drawGround();
   player.drawImage();
 }
 
 function mainLoop() {
   if (game) {
     if(!init) {
+      background.setImage();
       player.setImage();
       init = true;
     }

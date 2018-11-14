@@ -4,6 +4,17 @@ function startGame(){
   game = true;
 }
 
+function populateClouds () {
+  for(let row = 0; row < ROW; row+= 1) {
+    for(let column = 0; column< COLUMN; column+=1) {
+      CLOUD_POSITION.push({
+        x: COLUMN_INITIALPOS[row] + CLOUD_WIDTH * (column) * CLOUD_SPACING,
+        y: ROW_INITALPOS[row],
+      })
+    }
+  }
+}
+
 
 window.onload = (e) => {
   let assetsLoaded = 0;
@@ -12,7 +23,7 @@ window.onload = (e) => {
   let sounds = SOUNDS;
 
   let totalAssets = images.length + sounds.length;
-
+  populateClouds();
   images.forEach(v => {
     const { id } = v;
     const img = new Image();

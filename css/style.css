@@ -4,9 +4,8 @@
 }
 
 #mainContainer {
-  width: 1002px;
-  height: 602px;
+  width: 1000px;
+  height: 600px;
   border: 1px solid black;
   margin: auto;
 }
-

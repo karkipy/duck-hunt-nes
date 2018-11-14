@@ -10,3 +10,12 @@ function getSpriteObject(sx, sy, sw, sh, dx, dy, dw, dh) {
     height: dh,
   }
 }
+
+
+function setSpriteObjectPosition(spriteObj, x, y) {
+  return {
+    ...spriteObj,
+    placeX: x,
+    placeY: y,
+  }
+}

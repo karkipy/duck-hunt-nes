@@ -6,11 +6,13 @@ class Duck {
   }
 
   setImage() {
-    console.log(this.dimensions);
     this.image = loadedImages[SPRITE_INDICATOR];
   }
 
   drawImage() {
-    this.ctx.drawImage(this.image, 0, 420, 70, 70, 100, 100, 70, 70);
+    const dimen = this.dimensions[LEFT][FLY];
+    spriteRenderer.drawImage(this.image, dimen[0]);
+    spriteRenderer.drawImage(this.image, dimen[1]);
+    spriteRenderer.drawImage(this.image, dimen[2]);
   }
 }

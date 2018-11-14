@@ -104,7 +104,9 @@ const MAP_SPRITE_DUCKS = {
   [DUCK_TYPES[DUCK_BLACK]] :{
     [LEFT] : {
       [FLY]: [
-
+        getSpriteObject(0, 420, 65, 70, 100, 100, 70, 70),
+        getSpriteObject(65, 420, 65, 70, 180, 100, 70, 70),
+        getSpriteObject(130, 420, 65, 70, 250, 100, 70, 70),
       ],
     }
   },

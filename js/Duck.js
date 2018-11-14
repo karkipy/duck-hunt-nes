@@ -13,7 +13,7 @@ class Duck {
 
   drawImage() {
     const dimen = this.dimensions[LEFT][FLY_UP];
-    spriteRenderer.drawImage(this.image, updateSpritePosition(dimen[0], this.x, this.y));
+    // spriteRenderer.drawImage(this.image, updateSpritePosition(dimen[0], this.x, this.y));
     // spriteRenderer.drawImage(this.image, dimen[1]);
     // spriteRenderer.drawImage(this.image, dimen[2]);
 

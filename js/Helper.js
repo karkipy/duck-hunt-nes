@@ -11,7 +11,6 @@ function getSpriteObject(sx, sy, sw, sh, dx, dy, dw, dh) {
   }
 }
 
-
 function updateSpritePosition(spriteObj, x, y) {
   return {
     ...spriteObj,

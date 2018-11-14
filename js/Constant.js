@@ -1,3 +1,17 @@
+function getSpriteObject(sx, sy, sw, sh, dx, dy, dw, dh) {
+  return {
+    sourceX: sx,
+    sourceY: sy,
+    sourceWidth: sw,
+    sourceHeight: sh,
+    placeX: dx,
+    placeY: dy,
+    width: dw,
+    height: dh,
+  }
+}
+
+
 const STANDARD_FRAME = 60;
 
 // Image Indicators
@@ -100,6 +114,8 @@ const LEFT = 'LEFT';
 const RIGHT = 'RIGHT';
 const FLY_UP = 'FLY_UP';
 const FLY_SAME = 'FLY_SAME';
+const DUCK_DEATH = 'DEATH';
+const DUCK_DROP = 'DUCK_DROP';
 
 
 const MAP_SPRITE_DUCKS = {
@@ -128,7 +144,11 @@ const MAP_SPRITE_DUCKS = {
         getSpriteObject(195 + 80, 500, 65, 70, 450, 400, 70, 70),
         getSpriteObject(195 + 80 * 2, 500, 65, 70, 550, 400, 70, 70),
       ],
-    }
+    },
+
+    [DUCK_DEATH]: getSpriteObject(),
+
+    [DUCK_DROP]: [],
   },
   [DUCK_TYPES[DUCK_RED]]: {
 

@@ -97,20 +97,40 @@ const BLACK = 'BLACK';
 const RED = 'RED';
 const DUCK_TYPES = [BLACK, RED];
 const LEFT = 'LEFT';
-const FLY = 'FLY';
+const RIGHT = 'RIGHT';
+const FLY_UP = 'FLY_UP';
+const FLY_SAME = 'FLY_SAME';
 
 
 const MAP_SPRITE_DUCKS = {
-  [DUCK_TYPES[DUCK_BLACK]] :{
-    [LEFT] : {
-      [FLY]: [
-        getSpriteObject(0, 420, 65, 70, 100, 100, 70, 70),
-        getSpriteObject(65, 420, 65, 70, 180, 100, 70, 70),
-        getSpriteObject(130, 420, 65, 70, 250, 100, 70, 70),
+  [DUCK_TYPES[DUCK_BLACK]]: {
+    [LEFT]: {
+      [FLY_UP]: [
+        getSpriteObject(0, 420, 60, 70, 100, 100, 70, 70),
+        getSpriteObject(70, 420, 60, 70, 180, 100, 70, 70),
+        getSpriteObject(130, 420, 60, 70, 250, 100, 70, 70),
+      ],
+      [FLY_SAME]: [
+        getSpriteObject(195, 420, 70, 70, 200, 200, 70, 70),
+        getSpriteObject(195 + 80, 420, 70, 70, 300, 200, 70, 70),
+        getSpriteObject(195 + 80 * 2 , 420, 70, 70, 400, 200, 70, 70),
+      ],
+    },
+
+    [RIGHT]: {
+      [FLY_UP]: [
+        getSpriteObject(0, 500, 65, 70, 300, 300, 70, 70),
+        getSpriteObject(67, 500, 65, 70, 450, 300, 70, 70),
+        getSpriteObject(130, 500, 65, 70, 550, 300, 70, 70),
+      ],
+      [FLY_SAME]: [
+        getSpriteObject(195, 500, 65, 70, 300, 400, 70, 70),
+        getSpriteObject(195 + 80, 500, 65, 70, 450, 400, 70, 70),
+        getSpriteObject(195 + 80 * 2, 500, 65, 70, 550, 400, 70, 70),
       ],
     }
   },
-  [DUCK_TYPES[DUCK_RED]] : {
+  [DUCK_TYPES[DUCK_RED]]: {
 
   }
 };

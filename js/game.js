@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 let animationReq;
 let animationId = 0;
 
-const spriteRenderer = new SpriteRenderer(ctx);
+const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 
 // Background of the game
 let background = new BackGround(ctx);
@@ -12,7 +12,8 @@ let background = new BackGround(ctx);
 
 // Player, Dog and Ducks
 
-const dog = new Dog(ctx);
+const dog = new Dog();
+let duck = new Duck(ctx);
 
 let player = new Player(ctx);
 function clearAll(){
@@ -20,25 +21,28 @@ function clearAll(){
 }
 
 
-function setAllObjectImage() {
+function setAllObjectImage() { // Set Image after all the images are loaded use of single resource
   background.setImage();
   player.setImage();
   dog.setImage();
+  duck.setImage();
 }
 
-function drawAllObject() {
+function drawAllObject() { // draw all the object here
   background.drawSky();
   background.drawTree();
   background.drawGround();
-  if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) {
+  if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     animateDogWalking();
     dog.drawImage();
+  } else {
   }
+  duck.drawImage();
   player.drawCursor();
 }
 
 
-function gameLoop() {
+function gameLoop() { // game loop of the game
   clearAll();
   drawAllObject();
 }
@@ -55,7 +59,7 @@ function mainLoop() {
   animationReq = requestAnimationFrame(mainLoop);
 }
 
-function getMousePos(canvas, evt) {
+function getMousePos(canvas, evt) { // get mouse positions
   let rect = canvas.getBoundingClientRect();
   return {
     x: evt.clientX - rect.left,
@@ -63,18 +67,19 @@ function getMousePos(canvas, evt) {
   };
 }
 
-canvas.addEventListener('mousemove', function(evt) {
+canvas.addEventListener('mousemove', function(evt) { // cursor
   let mousePos = getMousePos(canvas, evt);
   player.setDirections(mousePos.x, mousePos.y);
 
 }, false);
 
-canvas.addEventListener('click', function(evt) {
+canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
     loadedSounds[SHOT_GUN_INDICATOR].play();
   } catch(e) {
     console.log(e);
   }
 });
+
 
 mainLoop();

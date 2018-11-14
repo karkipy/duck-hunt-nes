@@ -1,6 +1,5 @@
 class Dog {
-  constructor(ctx) {
-    this.ctx = ctx;
+  constructor() {
     this.index = 0;
     this.dimensions =  MAP_SPRITE[DOG_INDICATOR][this.index];
   }

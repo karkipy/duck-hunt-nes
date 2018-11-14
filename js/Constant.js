@@ -82,131 +82,124 @@ const DOG_SPACING = 50;
 const DOG_SOURCE_X = 194;
 const DOG_SOURCE_Y = 210;
 
-const DOG_GROUND = [];
-
-for(let i = 0; i< 8; i+= 1) {
-  DOG_GROUND.push({
-    sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * i,
-    sourceY: DOG_SOURCE_Y,
-    sourceWidth: DOG_SOURCE_WIDTH,
-    sourceHeight: DOG_SOURCE_HEIGHT,
-    placeX: DOG_POS + DOG_SPACING * i,
-    placeY: DOG_GROUND_Y,
-    width: DOG_WIDTH,
-    height: DOG_HEIGHT,
-  });
-}
 
 
 // Image Map Resources
 const GROUND_INDICATOR = 0;
 const TREE_INDICATOR = 1;
 const DOG_INDICATOR = 2;
+const DUCK_INDICATOR = 3;
+
+// Duck Resources
+const DUCK_BLACK = 0;
+const DUCK_RED = 1;
+const BLACK = 'BLACK';
+const RED = 'RED';
+const DUCK_TYPES = [BLACK, RED];
+const LEFT = 'LEFT';
+const FLY = 'FLY';
+
+
+const MAP_SPRITE_DUCKS = {
+  [DUCK_TYPES[DUCK_BLACK]] :{
+    [LEFT] : {
+      [FLY]: [
+
+      ],
+    }
+  },
+  [DUCK_TYPES[DUCK_RED]] : {
+
+  }
+};
 
 const MAP_SPRITE = {
-  [GROUND_INDICATOR]: {
-    sourceX: 195,
-    sourceY: 0,
-    sourceWidth: 790,
-    sourceHeight: 200,
-    placeX: 0,
-    placeY: 350,
-    width: SCREEN_WIDTH,
-    height: 250,
-  },
-  [TREE_INDICATOR]: {
-    sourceX: 0,
-    sourceY: 0,
-    sourceWidth: 180,
-    sourceHeight: 400,
-    placeX: 100,
-    placeY: 200,
-    width: 160,
-    height: 400,
-  },
+  [GROUND_INDICATOR]: getSpriteObject(195, 0, 790, 200, 0, 350, SCREEN_WIDTH, 250),
+  [TREE_INDICATOR]: getSpriteObject(0, 0, 180, 400, 100, 200, 160, 400),
   [DOG_INDICATOR]: [
-    {
-      sourceX: DOG_SOURCE_X,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS,
-      placeY: DOG_GROUND_Y,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING,
-      placeY: DOG_GROUND_Y,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
+    getSpriteObject(
+      DOG_SOURCE_X,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT),
 
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 2,
-      placeY: DOG_GROUND_Y,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 3,
-      placeY: DOG_GROUND_Y,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 4,
-      placeY: DOG_GROUND_Y,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 4,
-      placeY: DOG_GROUND_Y + 10,
-      width: DOG_WIDTH,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH_FLY,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 5,
-      placeY: DOG_GROUND_Y_FLY,
-      width: DOG_WIDTH_FLY,
-      height: DOG_HEIGHT,
-    },
-    {
-      sourceX: DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
-      sourceY: DOG_SOURCE_Y,
-      sourceWidth: DOG_SOURCE_WIDTH_FLY,
-      sourceHeight: DOG_SOURCE_HEIGHT,
-      placeX: DOG_POS + DOG_SPACING * 7,
-      placeY: DOG_GROUND_Y_MAX,
-      width: DOG_WIDTH_FLY,
-      height: DOG_HEIGHT,
-    },
+    getSpriteObject(
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT),
+
+    getSpriteObject(
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 2,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+
+    getSpriteObject(
+     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 3,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+    getSpriteObject(
+     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 4,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+    getSpriteObject(
+     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 4,
+      DOG_GROUND_Y + 10,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+    getSpriteObject(
+     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH_FLY,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 5,
+      DOG_GROUND_Y_FLY,
+      DOG_WIDTH_FLY,
+      DOG_HEIGHT,
+    ),
+    getSpriteObject(
+     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH_FLY,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 7,
+      DOG_GROUND_Y_MAX,
+      DOG_WIDTH_FLY,
+      DOG_HEIGHT,
+    ),
   ],
+  [DUCK_INDICATOR]: MAP_SPRITE_DUCKS,
 };
 
 // Animation resources

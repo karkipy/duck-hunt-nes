@@ -10,7 +10,9 @@ const spriteRenderer = new SpriteRenderer(ctx);
 let background = new BackGround(ctx);
 
 
-// Player and Ducks
+// Player, Dog and Ducks
+
+const dog = new Dog(ctx);
 
 let player = new Player(ctx);
 function clearAll(){
@@ -18,29 +20,37 @@ function clearAll(){
 }
 
 
+function setAllObjectImage() {
+  background.setImage();
+  player.setImage();
+  dog.setImage();
+}
 
-function gameLoop() {
-  clearAll();
+function drawAllObject() {
   background.drawSky();
   background.drawTree();
   background.drawGround();
+  if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) {
+    animateDogWalking();
+    dog.drawImage();
+  }
   player.drawCursor();
+}
+
+
+function gameLoop() {
+  clearAll();
+  drawAllObject();
 }
 
 function mainLoop() {
   if (game) {
     if(!init) {
-      background.setImage();
-      player.setImage();
+      setAllObjectImage();
       init = true;
     }
     gameLoop();
     animationId +=1;
-
-    if(animationId === STANDARD_FRAME) {
-      debugger;
-    }
-
   }
   animationReq = requestAnimationFrame(mainLoop);
 }
@@ -61,7 +71,7 @@ canvas.addEventListener('mousemove', function(evt) {
 
 canvas.addEventListener('click', function(evt) {
   try {
-    loadedSounds[0].play();
+    loadedSounds[SHOT_GUN_INDICATOR].play();
   } catch(e) {
     console.log(e);
   }

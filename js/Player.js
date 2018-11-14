@@ -16,7 +16,7 @@ class Player {
     this.y = y -  this.height / 2 ;
   }
 
-  drawImage() {
+  drawCursor() {
     this.ctx.drawImage(this.image, this.x, this.y, this.width , this.height);
   }
 }

@@ -1,3 +1,5 @@
+const STANDARD_FRAME = 60;
+
 // Image Indicators
 const PLAYER_INDICATOR = 0;
 const SPRITE_INDICATOR = 1;
@@ -56,6 +58,7 @@ const SKY_COLOR = '#00bfff';
 
 // Image Map Resources
 const GROUND_INDICATOR = 0;
+const TREE_INDICATOR = 1;
 
 const MAP_SPRITE = {
   [GROUND_INDICATOR]: {
@@ -68,6 +71,16 @@ const MAP_SPRITE = {
     width: SCREEN_WIDTH,
     height: 250,
   },
+  [TREE_INDICATOR]: {
+    sourceX: 0,
+    sourceY: 0,
+    sourceWidth: 180,
+    sourceHeight: 400,
+    placeX: 100,
+    placeY: 200,
+    width: 160,
+    height: 400,
+  }
 };
 
 // Game resources

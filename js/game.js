@@ -2,6 +2,9 @@ const canvas = document.getElementById('gameContainer');
 const ctx = canvas.getContext('2d');
 
 let animationReq;
+let animationId = 0;
+
+const spriteRenderer = new SpriteRenderer(ctx);
 
 // Background of the game
 let background = new BackGround(ctx);
@@ -19,8 +22,9 @@ function clearAll(){
 function gameLoop() {
   clearAll();
   background.drawSky();
+  background.drawTree();
   background.drawGround();
-  player.drawImage();
+  player.drawCursor();
 }
 
 function mainLoop() {
@@ -31,6 +35,12 @@ function mainLoop() {
       init = true;
     }
     gameLoop();
+    animationId +=1;
+
+    if(animationId === STANDARD_FRAME) {
+      debugger;
+    }
+
   }
   animationReq = requestAnimationFrame(mainLoop);
 }

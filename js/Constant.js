@@ -41,7 +41,7 @@ const SCREEN_HEIGHT = 600;
 
 const DIMESNSION_GUN = [
   { id: NORMAL_GUN_INDICATOR, width: 60, height: 60},
-  { id: SHOT_GUN_INDICATOR, width: 70, height: 70},
+  { id: SHOT_GUN_INDICATOR, width: 75, height: 75},
 ]
 
 const GUN_RESET = 1;
@@ -109,7 +109,7 @@ const BLACK_DUCK_MAP = {
     [FLY_UP]: [
       getSpriteObject(0, 420, 60, 70, 100, 100, 70, 70),
       getSpriteObject(70, 420, 60, 70, 180, 100, 70, 70),
-      getSpriteObject(130, 420, 60, 70, 250, 100, 70, 70),
+      getSpriteObject(132, 420, 60, 70, 250, 100, 70, 70),
     ],
     [FLY_SAME]: [
       getSpriteObject(195, 420, 70, 70, 200, 200, 70, 70),
@@ -271,7 +271,8 @@ const MAP_SPRITE = {
 };
 
 // Animation resources
-const DOG_ANIMATION_SEQUENCE = 45;
+const DOG_ANIMATION_SEQUENCE = 12;
+const DUCK_ANIMATION_SEQUENCE = 8;
 
 
 // Game resources

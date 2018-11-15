@@ -3,8 +3,8 @@ class Player {
     this.ctx = ctx;
     this.x = 50;
     this.y = 50;
-    this.width = DIMESNSION_GUN[0].width;
-    this.height = DIMESNSION_GUN[0].height;
+    this.width = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].width;
+    this.height = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].height;
   }
 
   setImage() {

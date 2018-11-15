@@ -5,29 +5,55 @@ class Player {
     this.y = 50;
     this.width = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].width;
     this.height = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].height;
+    this.barX = 850;
+    this.barY = 570;
+    this.barWidth = 120;
+    this.barWidthContainer = 120;
+    this.barHeight = 20;
+    this.ready = true;
   }
 
   setImage() {
     this.image = loadedImages[PLAYER_INDICATOR];
   }
 
+  getDimensions() {
+    let playerX = this.x;
+    let playerY = this.y;
+    let playerRadius = this.width/ 2;
+    return {
+      playerX,
+      playerY,
+      playerRadius,
+    }
+  }
+
   setDirections(x, y) {
-    this.x = x -  this.width / 2;
+    this.x = x - this.width / 2;
     this.y = y -  this.height / 2 ;
   }
 
+  checkBarWidth() {
+    if(this.barAnimate > 0 && this.barAnimate < this.barWidthContainer && !this.ready) {
+      this.barWidth =  this.barAnimate;
+      this.barAnimate += 3;
+    } else {
+      this.ready = true;
+    }
+  }
+
   drawBar() {
-    let xPos = 850;
-    let yPos = 570;
-    let width = 120;
-    let height = 20;
 
+    this.checkBarWidth();
     // call border
-    drawBorder(this.ctx, xPos, yPos, width, height);
-
+    drawBorder(this.ctx, this.barX, this.barY, this.barWidthContainer, this.barHeight);
     this.ctx.fillStyle='#FFF';
-    this.ctx.fillRect(xPos, yPos, width, height);
+    this.ctx.fillRect(this.barX, this.barY, this.barWidth, this.barHeight);
+  }
 
+  gunShot() {
+    this.barWidth = 0;
+    this.barAnimate = 1;
   }
 
   drawCursor() {

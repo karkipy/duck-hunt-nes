@@ -2,14 +2,14 @@ class Duck {
   constructor(ctx, type, direction) {
     this.ctx = ctx;
     this.type = type;
-    this.x = direction === RIGHT ? 50 : 800;
-    this.y = 400;
+    this.x = direction === RIGHT ? 300 : 800;
+    this.y = 350;
     this.dx = 1;
     this.dy = -1;
     this.duckDirection =  direction;
     this.duckDimensions = MAP_SPRITE[DUCK_INDICATOR][this.type]; // depends
     this.dimensions = this.duckDimensions[this.duckDirection]; // depends
-    this.death = false;
+    this.dead = false;
     this.duckAnimationId = 0;
     this.index = 0;
     this.duckMovement = DUCK_MOVEMENT[1]; // initial will always be 1
@@ -76,13 +76,26 @@ class Duck {
     this.duckAnimationId +=1;
   }
 
+
+  getAllDimensions() {
+    const { placeX, placeY, width, height } = this.renderDimension;
+    return {
+      x: placeX,
+      y: placeY,
+      width,
+      height,
+    }
+  }
+
   death() {
-    this.death = true;
+    this.dead = true;
   }
 
   drawImage() {
-    this.setDuckMovement();
-    this.setDimensions();
+    if (!this.dead) {
+      // this.setDuckMovement();
+      this.setDimensions();
+    }
     const updatedDimension = updateSpritePosition(this.renderDimension, this.x, this.y);
     spriteRenderer.drawImage(this.image, updatedDimension);
   }

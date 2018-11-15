@@ -84,7 +84,26 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
 
 canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
-    loadedSounds[NORMAL_GUN_INDICATOR].play();
+    if (player.ready) {
+      let { playerX, playerY, playerRadius} = player.getDimensions();
+      let duckaDimension = ducka.getAllDimensions();
+      let duckbDimension = ducka.getAllDimensions();
+      let { x, y, width, height } = duckaDimension;
+      console.log(duckaDimension, duckbDimension, playerX);
+
+      if (y < playerY + height && playerY + 15 < y){
+        debugger;
+        if(x < playerX + 20) {
+        }
+      }
+
+
+
+
+      loadedSounds[NORMAL_GUN_INDICATOR].play();
+      player.gunShot();
+      player.ready = false;
+    }
   } catch(e) {
     console.log(e);
   }

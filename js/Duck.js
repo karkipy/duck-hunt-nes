@@ -85,6 +85,5 @@ class Duck {
     this.setDimensions();
     const updatedDimension = updateSpritePosition(this.renderDimension, this.x, this.y);
     spriteRenderer.drawImage(this.image, updatedDimension);
-
   }
 }

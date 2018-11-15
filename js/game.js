@@ -46,6 +46,7 @@ function drawAllObject() { // draw all the object here
     duckb.drawImage();
   }
   player.drawCursor();
+  player.drawBar();
 }
 
 
@@ -83,7 +84,7 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
 
 canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
-    // loadedSounds[NORMAL_GUN_INDICATOR].play();
+    loadedSounds[NORMAL_GUN_INDICATOR].play();
   } catch(e) {
     console.log(e);
   }

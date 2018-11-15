@@ -13,7 +13,8 @@ let background = new BackGround(ctx);
 // Player, Dog and Ducks
 
 const dog = new Dog();
-let duck = new Duck(ctx);
+let ducka = new Duck(ctx, BLACK, RIGHT);
+let duckb = new Duck(ctx, RED, LEFT);
 
 let player = new Player(ctx);
 function clearAll(){
@@ -25,7 +26,8 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
   background.setImage();
   player.setImage();
   dog.setImage();
-  duck.setImage();
+  ducka.setImage();
+  duckb.setImage();
 }
 
 function drawAllObject() { // draw all the object here
@@ -40,7 +42,8 @@ function drawAllObject() { // draw all the object here
     animateDogWalking();
     dog.drawImage();
   } else {
-    duck.drawImage();
+    ducka.drawImage();
+    duckb.drawImage();
   }
   player.drawCursor();
 }
@@ -80,7 +83,7 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
 
 canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
-    loadedSounds[NORMAL_GUN_INDICATOR].play();
+    // loadedSounds[NORMAL_GUN_INDICATOR].play();
   } catch(e) {
     console.log(e);
   }

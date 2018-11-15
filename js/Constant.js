@@ -93,15 +93,22 @@ const DUCK_INDICATOR = 3;
 // Duck Resources
 const DUCK_BLACK = 0;
 const DUCK_RED = 1;
-const BLACK = 'BLACK';
+
 const RED = 'RED';
-const DUCK_TYPES = [BLACK, RED];
+const BLACK = 'BLACK';
+
 const LEFT = 'LEFT';
 const RIGHT = 'RIGHT';
+
 const FLY_UP = 'FLY_UP';
 const FLY_SAME = 'FLY_SAME';
+
 const DUCK_DEATH = 'DEATH';
 const DUCK_DROP = 'DUCK_DROP';
+
+const DUCK_TYPES = [BLACK, RED];
+const DUCK_DIRECTION = [LEFT, RIGHT]
+const DUCK_MOVEMENT = [FLY_UP, FLY_SAME];
 
 
 const BLACK_DUCK_MAP = {

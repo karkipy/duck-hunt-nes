@@ -104,41 +104,81 @@ const DUCK_DEATH = 'DEATH';
 const DUCK_DROP = 'DUCK_DROP';
 
 
-const MAP_SPRITE_DUCKS = {
-  [DUCK_TYPES[DUCK_BLACK]]: {
-    [LEFT]: {
-      [FLY_UP]: [
-        getSpriteObject(0, 420, 60, 70, 100, 100, 70, 70),
-        getSpriteObject(70, 420, 60, 70, 180, 100, 70, 70),
-        getSpriteObject(130, 420, 60, 70, 250, 100, 70, 70),
-      ],
-      [FLY_SAME]: [
-        getSpriteObject(195, 420, 70, 70, 200, 200, 70, 70),
-        getSpriteObject(195 + 80, 420, 70, 70, 300, 200, 70, 70),
-        getSpriteObject(195 + 80 * 2 , 420, 70, 70, 400, 200, 70, 70),
-      ],
-    },
-
-    [RIGHT]: {
-      [FLY_UP]: [
-        getSpriteObject(0, 500, 65, 70, 300, 300, 70, 70),
-        getSpriteObject(67, 500, 65, 70, 450, 300, 70, 70),
-        getSpriteObject(130, 500, 65, 70, 550, 300, 70, 70),
-      ],
-      [FLY_SAME]: [
-        getSpriteObject(195, 500, 65, 70, 300, 400, 70, 70),
-        getSpriteObject(195 + 80, 500, 65, 70, 450, 400, 70, 70),
-        getSpriteObject(195 + 80 * 2, 500, 65, 70, 550, 400, 70, 70),
-      ],
-    },
-
-    [DUCK_DEATH]: getSpriteObject(),
-
-    [DUCK_DROP]: [],
+const BLACK_DUCK_MAP = {
+  [LEFT]: {
+    [FLY_UP]: [
+      getSpriteObject(0, 420, 60, 70, 100, 100, 70, 70),
+      getSpriteObject(70, 420, 60, 70, 180, 100, 70, 70),
+      getSpriteObject(130, 420, 60, 70, 250, 100, 70, 70),
+    ],
+    [FLY_SAME]: [
+      getSpriteObject(195, 420, 70, 70, 200, 200, 70, 70),
+      getSpriteObject(195 + 80, 420, 70, 70, 300, 200, 70, 70),
+      getSpriteObject(195 + 80 * 2 , 420, 70, 70, 400, 200, 70, 70),
+    ],
   },
-  [DUCK_TYPES[DUCK_RED]]: {
 
-  }
+  [RIGHT]: {
+    [FLY_UP]: [
+      getSpriteObject(0, 500, 65, 70, 300, 300, 70, 70),
+      getSpriteObject(67, 500, 65, 70, 450, 300, 70, 70),
+      getSpriteObject(130, 500, 65, 70, 550, 300, 70, 70),
+    ],
+    [FLY_SAME]: [
+      getSpriteObject(195, 500, 65, 70, 300, 400, 70, 70),
+      getSpriteObject(195 + 80, 500, 65, 70, 450, 400, 70, 70),
+      getSpriteObject(195 + 80 * 2, 500, 65, 70, 550, 400, 70, 70),
+    ],
+  },
+
+  [DUCK_DEATH]: getSpriteObject(195 + 80 * 3, 420, 65, 70, 450,300, 70, 70),
+
+  [DUCK_DROP]: [
+    getSpriteObject(195 + 80 * 3 + 65 , 420, 50, 80, 520,300, 55, 80),
+    getSpriteObject(195 + 80 * 3 + 110, 420, 50, 80, 570,100, 55, 80),
+  ],
+};
+
+
+const RED_DUCK_MAP = {
+  [LEFT]: {
+    [FLY_UP]: [
+      getSpriteObject(0, 570, 60, 70, 100, 100, 70, 70),
+      getSpriteObject(70, 570, 60, 70, 180, 100, 70, 70),
+      getSpriteObject(130, 570, 60, 70, 250, 100, 70, 70),
+    ],
+    [FLY_SAME]: [
+      getSpriteObject(195, 570, 70, 70, 200, 200, 70, 70),
+      getSpriteObject(195 + 80, 570, 70, 70, 300, 200, 70, 70),
+      getSpriteObject(195 + 80 * 2 , 570, 70, 70, 400, 200, 70, 70),
+    ],
+  },
+
+  [RIGHT]: {
+    [FLY_UP]: [
+      getSpriteObject(0, 640, 65, 70, 300, 300, 70, 70),
+      getSpriteObject(67, 640, 65, 70, 450, 300, 70, 70),
+      getSpriteObject(130, 640, 65, 70, 550, 300, 70, 70),
+    ],
+    [FLY_SAME]: [
+      getSpriteObject(195, 640, 65, 70, 300, 400, 70, 70),
+      getSpriteObject(195 + 80, 640, 65, 70, 450, 400, 70, 70),
+      getSpriteObject(195 + 80 * 2, 640, 65, 70, 550, 400, 70, 70),
+    ],
+  },
+
+  [DUCK_DEATH]: getSpriteObject(195 + 80 * 3, 570, 65, 70, 450,300, 70, 70),
+  [DUCK_DROP]: [
+    getSpriteObject(195 + 80 * 3 + 65 , 565, 50, 80, 520,300, 55, 80),
+    getSpriteObject(195 + 80 * 3 + 110, 565, 50, 80, 570,100, 55, 80),
+  ],
+
+
+}
+
+const MAP_SPRITE_DUCKS = {
+  [DUCK_TYPES[DUCK_BLACK]]: BLACK_DUCK_MAP,
+  [DUCK_TYPES[DUCK_RED]]: RED_DUCK_MAP,
 };
 
 const MAP_SPRITE = {
@@ -177,7 +217,7 @@ const MAP_SPRITE = {
     ),
 
     getSpriteObject(
-     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
       DOG_SOURCE_Y,
       DOG_SOURCE_WIDTH,
       DOG_SOURCE_HEIGHT,
@@ -187,7 +227,7 @@ const MAP_SPRITE = {
       DOG_HEIGHT,
     ),
     getSpriteObject(
-     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
       DOG_SOURCE_Y,
       DOG_SOURCE_WIDTH,
       DOG_SOURCE_HEIGHT,
@@ -197,7 +237,7 @@ const MAP_SPRITE = {
       DOG_HEIGHT,
     ),
     getSpriteObject(
-     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
       DOG_SOURCE_Y,
       DOG_SOURCE_WIDTH,
       DOG_SOURCE_HEIGHT,
@@ -207,7 +247,7 @@ const MAP_SPRITE = {
       DOG_HEIGHT,
     ),
     getSpriteObject(
-     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
       DOG_SOURCE_Y,
       DOG_SOURCE_WIDTH_FLY,
       DOG_SOURCE_HEIGHT,
@@ -217,7 +257,7 @@ const MAP_SPRITE = {
       DOG_HEIGHT,
     ),
     getSpriteObject(
-     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
       DOG_SOURCE_Y,
       DOG_SOURCE_WIDTH_FLY,
       DOG_SOURCE_HEIGHT,

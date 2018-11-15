@@ -30,6 +30,10 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
 
 function drawAllObject() { // draw all the object here
   background.drawSky();
+
+  // Duck and dog later are to be drawn before tree and ground
+
+
   background.drawTree();
   background.drawGround();
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic

@@ -2,7 +2,7 @@ class Duck {
   constructor(ctx) {
     this.ctx = ctx;
     this.type = Math.round(Math.random());
-    this.dimensions = MAP_SPRITE[DUCK_INDICATOR][BLACK];
+    this.dimensions = MAP_SPRITE[DUCK_INDICATOR][RED];
     this.x = 500;
     this.y = 300;
   }
@@ -12,8 +12,15 @@ class Duck {
   }
 
   drawImage() {
-    const dimen = this.dimensions[LEFT][FLY_UP];
-    // spriteRenderer.drawImage(this.image, updateSpritePosition(dimen[0], this.x, this.y));
+    // const deathDimen = this.dimensions[DUCK_DEATH];
+    // spriteRenderer.drawImage(this.image,deathDimen);
+    // const dropDimen = this.dimensions[DUCK_DROP];
+
+    // spriteRenderer.drawImage(this.image, dropDimen[0]);
+    // spriteRenderer.drawImage(this.image, dropDimen[1]);
+
+    // const dimen = this.dimensions[LEFT][FLY_UP];
+    // spriteRenderer.drawImage(this.image, dimen[0]);
     // spriteRenderer.drawImage(this.image, dimen[1]);
     // spriteRenderer.drawImage(this.image, dimen[2]);
 

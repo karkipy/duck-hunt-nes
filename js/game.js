@@ -52,6 +52,7 @@ function mainLoop() {
     if(!init) {
       setAllObjectImage();
       init = true;
+      playAudio(loadedSounds, START_GAME_INDICATOR);
     }
     gameLoop();
     animationId +=1;

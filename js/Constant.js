@@ -20,18 +20,31 @@ const IMAGES = [
 const NORMAL_GUN_INDICATOR = 0;
 const SHOT_GUN_INDICATOR = 1;
 const START_GAME_INDICATOR = 2;
+const DUCK_FLAP_INDICATOR = 3;
+const DUCK_QUACK_INDICATOR = 4;
+const DUCK_FALL_INDICATOR = 5;
+const DUCK_LAND_INDICATOR = 6;
 
 
 // Sounds
 const NORMAL_GUN_SOUND = 'sounds/normal_gun_sound.mp3';
 const SHOT_GUN_SOUND = 'sounds/shot_gun_sound.mp3';
 const START_GAME_SOUND = 'sounds/grab_intro.mp3';
+const DUCK_FLAP_SOUND = 'sounds/grab_flap.mp3';
+const DUCK_QUACK_SOUND = 'sounds/quack.mp3';
+const DUCK_FALL_SOUND = 'sounds/duckFall.mp3';
+const DUCK_LAND_SOUND = 'sounds/duckLand.mp3';
+
 
 // Register All Sounds
 const SOUNDS = [
   { id: NORMAL_GUN_INDICATOR, src: NORMAL_GUN_SOUND },
   { id: SHOT_GUN_INDICATOR, src: SHOT_GUN_SOUND },
   { id: START_GAME_INDICATOR, src: START_GAME_SOUND },
+  { id: DUCK_FLAP_INDICATOR, src: DUCK_FLAP_SOUND },
+  { id: DUCK_QUACK_INDICATOR, src: DUCK_QUACK_SOUND },
+  { id: DUCK_FALL_INDICATOR, src: DUCK_FALL_SOUND },
+  { id: DUCK_LAND_INDICATOR, src: DUCK_LAND_SOUND },
 ];
 
 
@@ -276,6 +289,38 @@ const MAP_SPRITE = {
   ],
   [DUCK_INDICATOR]: MAP_SPRITE_DUCKS,
 };
+
+// Collision resources
+const COLLISION = {
+  [RIGHT]: {
+    [FLY_UP]: {
+      xmin: - 10,
+      xmax: 30,
+      ymin: - 25,
+      ymax: 30,
+    },
+    [FLY_SAME]: {
+      xmin: - 25,
+      xmax: 40,
+      ymin: - 10,
+      ymax: 30,
+    },
+  },
+  [LEFT]: {
+    [FLY_UP]: {
+      xmin: - 15,
+      xmax: 25,
+      ymin: - 25,
+      ymax: 30,
+    },
+    [FLY_SAME]:{
+      xmin: - 30,
+      xmax: 35,
+      ymin: - 10,
+      ymax: 30,
+    },
+  },
+}
 
 // Animation resources
 const DOG_ANIMATION_SEQUENCE = 12;

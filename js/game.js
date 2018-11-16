@@ -13,8 +13,8 @@ let background = new BackGround(ctx);
 // Player, Dog and Ducks
 
 const dog = new Dog();
-let ducka = new Duck(ctx, BLACK, RIGHT);
-let duckb = new Duck(ctx, RED, LEFT);
+let duck = new Duck(ctx, BLACK, LEFT);
+
 
 let player = new Player(ctx);
 function clearAll(){
@@ -26,8 +26,8 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
   background.setImage();
   player.setImage();
   dog.setImage();
-  ducka.setImage();
-  duckb.setImage();
+  duck.setImage();
+
 }
 
 function drawAllObject() { // draw all the object here
@@ -36,14 +36,19 @@ function drawAllObject() { // draw all the object here
   // Duck and dog later are to be drawn before tree and ground
 
 
-  background.drawTree();
-  background.drawGround();
+
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
+    background.drawTree();
+    background.drawGround();
     animateDogWalking();
     dog.drawImage();
   } else {
-    ducka.drawImage();
-    duckb.drawImage();
+    duck.drawImage();
+    background.drawTree();
+    background.drawGround();
+    // duckb.drawImage();
+    ctx.fillStyle = 'black';
+    ctx.fillRect(800, 350, 5, 70);
   }
   player.drawCursor();
   player.drawBar();
@@ -60,7 +65,7 @@ function mainLoop() {
     if(!init) {
       setAllObjectImage();
       init = true;
-      playAudio(loadedSounds, START_GAME_INDICATOR);
+      // playAudio(loadedSounds, START_GAME_INDICATOR);
     }
     gameLoop();
     animationId +=1;
@@ -86,20 +91,16 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
     if (player.ready) {
       let { playerX, playerY, playerRadius} = player.getDimensions();
-      let duckaDimension = ducka.getAllDimensions();
-      let duckbDimension = ducka.getAllDimensions();
+      let duckaDimension = duck.getAllDimensions();
       let { x, y, width, height } = duckaDimension;
-      console.log(duckaDimension, duckbDimension, playerX);
+      let { xmin, xmax, ymin, ymax } = COLLISION[duck.duckDirection][duck.duckMovement];
 
-      if (y < playerY + height && playerY + 15 < y){
-        debugger;
-        if(x < playerX + 20) {
+      if(y + ymin <= playerY && y + ymax >= playerY) {
+        if(x + xmin <= playerX && x + xmax >= playerX)
+        {
+          duck.death();
         }
       }
-
-
-
-
       loadedSounds[NORMAL_GUN_INDICATOR].play();
       player.gunShot();
       player.ready = false;

@@ -1,5 +1,15 @@
 const STANDARD_FRAME = 60;
 
+// HEIGHT and WIDTH sectors
+const SCREEN_WIDTH = 1000;
+const SCREEN_HEIGHT = 600;
+
+// Menu
+const MENU_WIDTH = 800;
+const MENU_HEIGHT = 550;
+
+
+
 // Image Indicators
 const PLAYER_INDICATOR = 0;
 const SPRITE_INDICATOR = 1;
@@ -48,9 +58,7 @@ const SOUNDS = [
 ];
 
 
-// HEIGHT and WIDTH sectors
-const SCREEN_WIDTH = 1000;
-const SCREEN_HEIGHT = 600;
+
 
 const DIMESNSION_GUN = [
   { id: NORMAL_GUN_INDICATOR, width: 60, height: 60},

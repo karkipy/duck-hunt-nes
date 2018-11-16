@@ -10,8 +10,8 @@ const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the ima
 
 // Background of the game
 let background = new BackGround(ctx);
-
 // Draw Menu
+let menuObj = new Menu(ctx);
 
 
 // Player, Dog and Ducks
@@ -30,7 +30,12 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
   player.setImage();
   dog.setImage();
   duck.setImage();
+}
 
+function drawBackGround() {
+  background.drawSky();
+  background.drawTree();
+  background.drawGround();
 }
 
 function drawAllObject() { // draw all the object here
@@ -61,17 +66,30 @@ function gameLoop() { // game loop of the game
 }
 
 function mainLoop() {
-  if (game) {
+  if(menu) {
     if(!init) {
-      setAllObjectImage();
-      init = true;
-      // playAudio(loadedSounds, START_GAME_INDICATOR);
+          setAllObjectImage();
+          init = true;
+          drawBackGround();
+          menuObj.drawMenu();
     }
-    gameLoop();
-    animationId +=1;
   }
+  // if (game) {
+  //   if(!init) {
+  //     setAllObjectImage();
+  //     init = true;
+  //     // playAudio(loadedSounds, START_GAME_INDICATOR);
+  //   }
+  //   gameLoop();
+  //   animationId +=1;
+  // }
   animationReq = requestAnimationFrame(mainLoop);
 }
+
+
+
+mainLoop();
+
 
 function getMousePos(canvas, evt) { // get mouse positions
   let rect = canvas.getBoundingClientRect();
@@ -89,7 +107,7 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
 
 canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
-    if (player.ready) {
+    if (player.ready && game) {
       let { playerX, playerY, playerRadius} = player.getDimensions();
       let duckaDimension = duck.getAllDimensions();
       let { x, y, width, height } = duckaDimension;
@@ -108,6 +126,3 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
     console.log(e);
   }
 });
-
-
-mainLoop();

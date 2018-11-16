@@ -1,7 +1,5 @@
-
-
-function startGame(){
-  game = true;
+function showMenu(){
+  menu = true;
 }
 
 function populateClouds () {
@@ -32,7 +30,7 @@ window.onload = (e) => {
       assetsLoaded += 1;
       loadedImages[id] = img;
       if (totalAssets === assetsLoaded) {
-        startGame();
+        showMenu();
       }
     }
   });
@@ -51,7 +49,7 @@ window.onload = (e) => {
       assetsLoaded +=1;
       loadedSounds[id] = audio;
       if (totalAssets === assetsLoaded) {
-        startGame();
+        showMenu();
       }
     }
   })

@@ -1,10 +1,10 @@
 class Player {
-  constructor(ctx) {
+  constructor(ctx, playerIndicator) {
     this.ctx = ctx;
     this.x = 50;
     this.y = 50;
-    this.width = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].width;
-    this.height = DIMESNSION_GUN[NORMAL_GUN_INDICATOR].height;
+    this.width = DIMESNSION_GUN[playerIndicator].width;
+    this.height = DIMESNSION_GUN[playerIndicator].height;
     this.barX = 850;
     this.barY = 570;
     this.barWidth = 120;

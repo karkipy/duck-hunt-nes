@@ -4,19 +4,22 @@ const ctx = canvas.getContext('2d');
 let animationReq;
 let animationId = 0;
 
+let playerGun = NORMAL_GUN_INDICATOR;
+
 const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 
 // Background of the game
 let background = new BackGround(ctx);
 
+// Draw Menu
+
 
 // Player, Dog and Ducks
-
 const dog = new Dog();
 let duck = new Duck(ctx, BLACK, LEFT);
 
 
-let player = new Player(ctx);
+let player = new Player(ctx, playerGun);
 function clearAll(){
   ctx.clearRect(0, 0 , SCREEN_WIDTH, SCREEN_HEIGHT);
 }
@@ -34,9 +37,6 @@ function drawAllObject() { // draw all the object here
   background.drawSky();
 
   // Duck and dog later are to be drawn before tree and ground
-
-
-
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     background.drawTree();
     background.drawGround();
@@ -94,14 +94,13 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
       let duckaDimension = duck.getAllDimensions();
       let { x, y, width, height } = duckaDimension;
       let { xmin, xmax, ymin, ymax } = COLLISION[duck.duckDirection][duck.duckMovement];
-
       if(y + ymin <= playerY && y + ymax >= playerY) {
         if(x + xmin <= playerX && x + xmax >= playerX)
         {
           duck.death();
         }
       }
-      loadedSounds[NORMAL_GUN_INDICATOR].play();
+      playAudio(NORMAL_GUN_INDICATOR);
       player.gunShot();
       player.ready = false;
     }

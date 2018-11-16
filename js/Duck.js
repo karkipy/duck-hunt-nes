@@ -37,11 +37,11 @@ class Duck {
     this.setRandomDuckDirections();
 
     if (this.y !== 0 && this.duckMovement ===  FLY_UP) {
-      playAudio(loadedSounds, DUCK_FLAP_INDICATOR);
+      playAudio(DUCK_FLAP_INDICATOR);
     }
 
     if (this.duckMovement === FLY_SAME && this.duckAnimationId % 5 === 0) {
-      playAudio(loadedSounds, DUCK_QUACK_INDICATOR);
+      playAudio(DUCK_QUACK_INDICATOR);
     }
   }
 
@@ -100,11 +100,11 @@ class Duck {
       this.y +=4;
       if (this.y > SCREEN_HEIGHT) {
         if (!this.reset) {
-          playAudio(loadedSounds, DUCK_LAND_INDICATOR);
+          playAudio(DUCK_LAND_INDICATOR);
         }
         this.reset = true;
       } else {
-        playAudio(loadedSounds, DUCK_FALL_INDICATOR);
+        playAudio(DUCK_FALL_INDICATOR);
       }
     }
     this.duckAnimationId += 1;

@@ -325,11 +325,3 @@ const COLLISION = {
 // Animation resources
 const DOG_ANIMATION_SEQUENCE = 12;
 const DUCK_ANIMATION_SEQUENCE = 8;
-
-
-// Game resources
-const loadedImages = {};
-const loadedSounds = {};
-let game = false;
-let init = false;
-let animateDogId = 0;

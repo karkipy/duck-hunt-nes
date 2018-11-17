@@ -5,7 +5,6 @@ let animationReq;
 let animationId = 0;
 
 let playerGun = NORMAL_GUN_INDICATOR;
-console.log(NORMAL_GUN_INDICATOR);
 
 const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 
@@ -70,21 +69,18 @@ function gameLoop() { // game loop of the game
 function mainLoop() {
   if(menu) {
     if(!init) {
-          setAllObjectImage();
-          init = true;
-          drawBackGround();
-          menuObj.drawMenu();
+      setAllObjectImage();
+      init = true;
+
+    } else {
+      drawBackGround();
+      menuObj.drawMenu();
     }
   }
-  // if (game) {
-  //   if(!init) {
-  //     setAllObjectImage();
-  //     init = true;
-  //     // playAudio(loadedSounds, START_GAME_INDICATOR);
-  //   }
-  //   gameLoop();
-  //   animationId +=1;
-  // }
+  if (game) {
+    gameLoop();
+    animationId +=1;
+  }
   animationReq = requestAnimationFrame(mainLoop);
 }
 
@@ -103,13 +99,40 @@ function getMousePos(canvas, evt) { // get mouse positions
 
 canvas.addEventListener('mousemove', function(evt) { // cursor
   let mousePos = getMousePos(canvas, evt);
+  let { x, y } = mousePos;
+
+  if (menu) {
+    if (x >= MENU_XPOS_START && x<= MENU_XPOS_END && y >= MENU_YPOS_START && y <= MENU_YPOS_END) {
+      setCursor(mousePos);
+    }
+
+  }
+
+
   player.setDirections(mousePos.x, mousePos.y);
 
 }, false);
 
 canvas.addEventListener('click', function(evt) { //shoot the damn thing
   try {
-    if (player.ready && game) {
+
+    if(menu) {
+      let mousePos = getMousePos(canvas, evt);
+      let indicator = setPlayerIndicator(mousePos);
+
+      if (indicator === undefined) { // startGame
+        game = true;
+        menu = false;
+      }
+
+      if (indicator === NORMAL_GUN_INDICATOR || indicator === SHOT_GUN_INDICATOR) {
+        playerGun = indicator;
+        playAudio(playerGun);
+      }
+
+    }
+
+    else if (player.ready && game) {
       let { playerX, playerY, playerRadius} = player.getDimensions();
       let duckaDimension = duck.getAllDimensions();
       let { x, y, width, height } = duckaDimension;
@@ -120,7 +143,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
           duck.death();
         }
       }
-      playAudio(NORMAL_GUN_INDICATOR);
+      playAudio(playerGun);
       player.gunShot();
       player.ready = false;
     }

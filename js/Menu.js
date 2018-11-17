@@ -1,8 +1,8 @@
 class Menu {
   constructor(ctx) {
     this.ctx = ctx;
-    this.x = (SCREEN_WIDTH - MENU_WIDTH) / 2;
-    this.y = (SCREEN_HEIGHT - MENU_HEIGHT) / 2;
+    this.x = MENU_XPOS_START;
+    this.y = MENU_YPOS_START;
     this.width = MENU_WIDTH;
     this.height = MENU_HEIGHT;
 
@@ -11,6 +11,22 @@ class Menu {
   setImage() {
     this.normalGunImage = loadedImages[NORMAL_GUN_INDICATOR];
     this.shotGunImage = loadedImages[SHOT_GUN_INDICATOR];
+  }
+
+  drawNormalGunBorder(){
+
+    drawBorderLine(this.ctx, 280, 230, 190, 120, 2, 'white');
+    this.ctx.fillStyle = '#1A1A1A';
+    this.ctx.fillRect(280, 230, 190, 120);
+
+  }
+
+  drawShotGunBorder(){
+
+    drawBorderLine(this.ctx, 500, 230, 240, 120, 2, 'white');
+    this.ctx.fillStyle = '#1A1A1A';
+    this.ctx.fillRect(500, 230, 240, 120);
+
   }
 
   drawMenu() {
@@ -25,23 +41,25 @@ class Menu {
     this.ctx.font = "25px eightBitFont";
     this.ctx.fillText("PICK YOUR WEAPON ", SCREEN_WIDTH/ 2, 190);
 
-    drawBorderLine(this.ctx, 280, 230, 190, 120, 2, 'white');
-    this.ctx.fillStyle = '#1A1A1A';
-    this.ctx.fillRect(280, 230, 190, 120);
-    this.ctx.drawImage(this.normalGunImage, 320, 230, 120 , 120);
 
+    if (playerGun === NORMAL_GUN_INDICATOR) {
+      this.drawNormalGunBorder();
+    } else {
+      this.drawShotGunBorder();
+    }
+
+
+    this.ctx.drawImage(this.normalGunImage, 320, 230, 120 , 120);
     this.ctx.fillStyle = "white";
     this.ctx.fillText("PISTOL", 380 , 380);
-    this.ctx.fillText("1X DUCK", 380 , 405);
+    this.ctx.fillText("1 X DUCK", 380 , 405);
 
 
-    drawBorderLine(this.ctx, 500, 230, 240, 120, 2, 'white');
-    this.ctx.fillStyle = '#1A1A1A';
-    this.ctx.fillRect(500, 230, 240, 120);
+
     this.ctx.drawImage(this.shotGunImage, 430, 200, 380 , 170);
     this.ctx.fillStyle = "white";
     this.ctx.fillText("SHOTGUN", 620 , 380);
-    this.ctx.fillText("2X DUCK", 620 , 405);
+    this.ctx.fillText("2 X DUCK", 620 , 405);
 
 
     // Button for the game
@@ -62,5 +80,6 @@ class Menu {
     this.ctx.fillText("1)  OPEN chrome://flags/#autoplay-policy", 270, 560);
     this.ctx.fillText("2) SET NO USER GESTURED IS REQUIRED", 590, 560);
     this.ctx.fillText("3) RELAUNCH CHROME", 815, 560);
+
   }
 }

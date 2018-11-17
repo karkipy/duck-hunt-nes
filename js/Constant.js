@@ -4,15 +4,25 @@ const STANDARD_FRAME = 60;
 const SCREEN_WIDTH = 1000;
 const SCREEN_HEIGHT = 600;
 
-// Menu
-const MENU_WIDTH = 800;
-const MENU_HEIGHT = 550;
-
-
-
 //Gun Indicators
 const NORMAL_GUN_INDICATOR = 111;
 const SHOT_GUN_INDICATOR = 1111;
+
+// Menu
+const MENU_WIDTH = 800;
+const MENU_HEIGHT = 550;
+const MENU_XPOS_START = (SCREEN_WIDTH - MENU_WIDTH) / 2;
+const MENU_YPOS_START = (SCREEN_HEIGHT - MENU_HEIGHT) / 2;
+const MENU_XPOS_END = MENU_XPOS_START + MENU_WIDTH;
+const MENU_YPOS_END = MENU_YPOS_START + MENU_HEIGHT;
+
+/// MENU POINTER
+const POINTER_DIMENSION = [ // S = Start E = End
+  {xS: 280, yS: 230, xE: 470, yE: 350, type: NORMAL_GUN_INDICATOR },
+  {xS: 500, yS: 230, xE: 740, yE: 350, type: SHOT_GUN_INDICATOR },
+  {xS: 425, yS: 420, xE: 545, yE: 470 },
+];
+
 
 // Image Indicators
 const PLAYER_INDICATOR = 0;

@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 let animationReq;
 let animationId = 0;
 
-let playerGun = SHOT_GUN_INDICATOR;
+let playerGun = NORMAL_GUN_INDICATOR;
 
 const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 

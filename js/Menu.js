@@ -25,7 +25,42 @@ class Menu {
     this.ctx.font = "25px eightBitFont";
     this.ctx.fillText("PICK YOUR WEAPON ", SCREEN_WIDTH/ 2, 190);
 
-    this.ctx.drawImage(this.normalGunImage, 300, 250, 100 , 100);
-    this.ctx.drawImage(this.shotGunImage, 400, 250, 350 , 150);
+    drawBorderLine(this.ctx, 280, 230, 190, 120, 2, 'white');
+    this.ctx.fillStyle = '#1A1A1A';
+    this.ctx.fillRect(280, 230, 190, 120);
+    this.ctx.drawImage(this.normalGunImage, 320, 230, 120 , 120);
+
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("PISTOL", 380 , 380);
+    this.ctx.fillText("1X DUCK", 380 , 405);
+
+
+    drawBorderLine(this.ctx, 500, 230, 240, 120, 2, 'white');
+    this.ctx.fillStyle = '#1A1A1A';
+    this.ctx.fillRect(500, 230, 240, 120);
+    this.ctx.drawImage(this.shotGunImage, 430, 200, 380 , 170);
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("SHOTGUN", 620 , 380);
+    this.ctx.fillText("2X DUCK", 620 , 405);
+
+
+    // Button for the game
+
+    drawBorderLine(this.ctx, 425, 420, 120, 50, 1, 'white');
+    this.ctx.font = "40px eightBitFont";
+    this.ctx.fillStyle = "black";
+    this.ctx.fillText("PLAY", 485 , 455);
+
+    this.ctx.font = "25px eightBitFont";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("HOW TO TURN ON SOUND ?", 230, 520);
+
+    this.ctx.font = "18px eightBitFont";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("(Chrome has disabled auto sound play)", 520, 520);
+
+    this.ctx.fillText("1)  OPEN chrome://flags/#autoplay-policy", 270, 560);
+    this.ctx.fillText("2) SET NO USER GESTURED IS REQUIRED", 590, 560);
+    this.ctx.fillText("3) RELAUNCH CHROME", 815, 560);
   }
 }

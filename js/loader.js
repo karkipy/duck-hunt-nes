@@ -15,6 +15,14 @@ function populateClouds () {
   }
 }
 
+function showPercentage(loaded, total) {
+  clearAll();
+  const loadPercentage =  Math.round((loaded / total) * 100);
+  ctx.font = "50px eightBitFont";
+  ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
+
+}
+
 
 window.onload = (e) => {
   let assetsLoaded = 0;
@@ -35,10 +43,7 @@ window.onload = (e) => {
     img.onload = (e) => {
       assetsLoaded += 1;
       loadedImages[id] = img;
-      ctx.clearRect(0, 0 , SCREEN_WIDTH, SCREEN_HEIGHT);
-      const loadPercentage =  Math.round((assetsLoaded / totalAssets) * 100);
-      ctx.font = "50px eightBitFont";
-      ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
+      showPercentage(assetsLoaded, totalAssets);
       if (totalAssets === assetsLoaded) {
         showMenu();
       }
@@ -58,16 +63,9 @@ window.onload = (e) => {
     audio.onloadstart = (e) => {
       assetsLoaded +=1;
       loadedSounds[id] = audio;
-      ctx.clearRect(0, 0 , SCREEN_WIDTH, SCREEN_HEIGHT);
-      const loadPercentage =  Math.round((assetsLoaded / totalAssets) * 100);
-      ctx.font = "50px eightBitFont";
-      ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
+      showPercentage(assetsLoaded, totalAssets);
       if (totalAssets === assetsLoaded) {
         showMenu();
-        const loadPercentage = Math.round((assetsLoaded / totalAssets) * 100);
-        ctx.font = "50px eightBitFont";
-        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
-
       }
     }
   })

@@ -3,6 +3,7 @@ class Player {
     this.ctx = ctx;
     this.x = 50;
     this.y = 50;
+    this.playerIndicator = playerIndicator;
     this.width = DIMESNSION_GUN[playerIndicator].width;
     this.height = DIMESNSION_GUN[playerIndicator].height;
     this.barX = 850;
@@ -54,6 +55,8 @@ class Player {
   gunShot() {
     this.barWidth = 0;
     this.barAnimate = 1;
+    this.ready = false;
+    playAudio(this.playerIndicator);
   }
 
   drawCursor() {

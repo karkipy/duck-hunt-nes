@@ -1,5 +1,7 @@
 function showMenu(){
   menu = true;
+  // game = true;
+  canvas.style.cursor = 'none';
 }
 
 function populateClouds () {
@@ -31,8 +33,8 @@ window.onload = (e) => {
       loadedImages[id] = img;
       if (totalAssets === assetsLoaded) {
         showMenu();
-        ctx.font = "30px Arial";
-        ctx.fillText("Hello World",10,50);
+        // ctx.font = "30px Arial";
+        // ctx.fillText("Hello World",10,50);
       }
     }
   });

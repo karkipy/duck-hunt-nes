@@ -79,7 +79,7 @@ const SOUNDS = [
 
 const DIMESNSION_GUN = {
   [NORMAL_GUN_INDICATOR]: { width: 60, height: 60 },
-  [SHOT_GUN_INDICATOR]: { width: 75, height: 75},
+  [SHOT_GUN_INDICATOR]: { width: 80, height: 80},
 }
 
 const GUN_RESET = 1;
@@ -316,7 +316,7 @@ const MAP_SPRITE = {
 };
 
 // Collision resources
-const COLLISION = {
+const NORMAL_GUN_COLLISION = {
   [RIGHT]: {
     [FLY_UP]: {
       xmin: - 10,
@@ -347,6 +347,49 @@ const COLLISION = {
   },
 }
 
+
+
+const SHOT_GUN_COLLISION = {
+  [RIGHT]: {
+    [FLY_UP]: {
+      xmin: - 30,
+      xmax: 25,
+      ymin: - 35,
+      ymax: 20,
+    },
+    [FLY_SAME]: {
+      xmin: - 38,
+      xmax: 28,
+      ymin: - 20,
+      ymax: 20,
+    }
+  },
+
+  [LEFT]: {
+    [FLY_UP]: {
+      xmin: -30,
+      xmax: 15,
+      ymin: -35,
+      ymax: 25,
+    },
+    [FLY_SAME]: {
+      xmin: - 35,
+      xmax: 28,
+      ymin: - 15,
+      ymax: 30,
+    }
+  }
+}
+
+
+const DUCK_COLLISION = {
+ [NORMAL_GUN_INDICATOR]: NORMAL_GUN_COLLISION,
+ [SHOT_GUN_INDICATOR]: SHOT_GUN_COLLISION,
+}
+
+
 // Animation resources
 const DOG_ANIMATION_SEQUENCE = 12;
 const DUCK_ANIMATION_SEQUENCE = 8;
+
+const DUCK_LAND_HEIGHT = 400;

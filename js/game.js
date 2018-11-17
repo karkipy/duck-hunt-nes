@@ -4,7 +4,7 @@ const ctx = canvas.getContext('2d');
 let animationReq;
 let animationId = 0;
 
-let playerGun = NORMAL_GUN_INDICATOR;
+let playerGun = SHOT_GUN_INDICATOR;
 
 const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 
@@ -52,9 +52,6 @@ function drawAllObject() { // draw all the object here
     duck.drawImage();
     background.drawTree();
     background.drawGround();
-    // duckb.drawImage();
-    ctx.fillStyle = 'black';
-    ctx.fillRect(800, 350, 5, 70);
   }
   player.drawCursor();
   player.drawBar();
@@ -77,8 +74,14 @@ function mainLoop() {
       menuObj.drawMenu();
     }
   }
-  if (game) {
-    gameLoop();
+  else if (game) {
+    if(!init) {
+      setAllObjectImage();
+      init = true;
+
+    } else {
+      gameLoop();
+    }
     animationId +=1;
   }
   animationReq = requestAnimationFrame(mainLoop);
@@ -136,16 +139,15 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
       let { playerX, playerY, playerRadius} = player.getDimensions();
       let duckaDimension = duck.getAllDimensions();
       let { x, y, width, height } = duckaDimension;
-      let { xmin, xmax, ymin, ymax } = COLLISION[duck.duckDirection][duck.duckMovement];
+      let { xmin, xmax, ymin, ymax } = DUCK_COLLISION[SHOT_GUN_INDICATOR][duck.duckDirection][duck.duckMovement];
+
       if(y + ymin <= playerY && y + ymax >= playerY) {
         if(x + xmin <= playerX && x + xmax >= playerX)
         {
           duck.death();
         }
       }
-      playAudio(playerGun);
       player.gunShot();
-      player.ready = false;
     }
   } catch(e) {
     console.log(e);

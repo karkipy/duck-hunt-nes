@@ -12,7 +12,7 @@ class Duck {
     this.dead = false;
     this.duckAnimationId = 0;
     this.index = 0;
-    this.duckMovement = DUCK_MOVEMENT[0]; // initial will always be 1
+    this.duckMovement = DUCK_MOVEMENT[1]; // initial will always be 1
     this.renderDimension = this.dimensions[this.duckMovement][this.index];
     this.duckSpeed = 2;
     this.duckMovementChangeSequence = Math.floor(Math.random() * (80 - 60) + 60);
@@ -98,8 +98,9 @@ class Duck {
         this.duckDeathIndex = (this.duckDeathIndex + 1) % this.dimensions.length;
       }
       this.y +=4;
-      if (this.y > SCREEN_HEIGHT) {
+      if (this.y > DUCK_LAND_HEIGHT) {
         if (!this.reset) {
+          stopAudio(DUCK_FALL_INDICATOR);
           playAudio(DUCK_LAND_INDICATOR);
         }
         this.reset = true;
@@ -130,7 +131,7 @@ class Duck {
     if (this.dead) {
       this.setDuckDeathMovements();
     } else {
-      this.setDuckMovement();
+      // this.setDuckMovement();
       this.setDimensions();
     }
     const updatedDimension = updateSpritePosition(this.renderDimension, this.x, this.y);

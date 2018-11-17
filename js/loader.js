@@ -33,8 +33,9 @@ window.onload = (e) => {
       loadedImages[id] = img;
       if (totalAssets === assetsLoaded) {
         showMenu();
-        // ctx.font = "30px Arial";
-        // ctx.fillText("Hello World",10,50);
+        const loadPercentage = Math.round(assetsLoaded / totalAssets);
+        ctx.font = "30px eightBitFont";
+        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
       }
     }
   });
@@ -54,6 +55,10 @@ window.onload = (e) => {
       loadedSounds[id] = audio;
       if (totalAssets === assetsLoaded) {
         showMenu();
+        const loadPercentage = Math.round(assetsLoaded / totalAssets);
+        ctx.font = "30px eightBitFont";
+        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+
       }
     }
   })

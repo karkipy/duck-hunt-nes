@@ -33,9 +33,9 @@ window.onload = (e) => {
       loadedImages[id] = img;
       if (totalAssets === assetsLoaded) {
         showMenu();
-        const loadPercentage = Math.round(assetsLoaded / totalAssets);
-        ctx.font = "30px Arial";
-        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+        const loadPercentage =  Math.round((assetsLoaded / totalAssets) * 100);
+        ctx.font = "50px eightBitFont";
+        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
       }
     }
   });
@@ -55,9 +55,9 @@ window.onload = (e) => {
       loadedSounds[id] = audio;
       if (totalAssets === assetsLoaded) {
         showMenu();
-        const loadPercentage = Math.round(assetsLoaded / totalAssets);
-        ctx.font = "30px Arial";
-        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
+        const loadPercentage = Math.round((assetsLoaded / totalAssets) * 100);
+        ctx.font = "50px eightBitFont";
+        ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
 
       }
     }

@@ -4,8 +4,8 @@ class Player {
     this.x = 50;
     this.y = 50;
     this.playerIndicator = playerIndicator;
-    this.width = DIMESNSION_GUN[playerIndicator].width;
-    this.height = DIMESNSION_GUN[playerIndicator].height;
+    this.width = DIMESNSION_GUN[this.playerIndicator].width;
+    this.height = DIMESNSION_GUN[this.playerIndicator].height;
     this.barX = 850;
     this.barY = 570;
     this.barWidth = 120;
@@ -16,6 +16,12 @@ class Player {
 
   setImage() {
     this.image = loadedImages[PLAYER_INDICATOR];
+  }
+
+  updatePlayer(playerIndicator) {
+    this.playerIndicator = playerIndicator;
+    this.width = DIMESNSION_GUN[this.playerIndicator].width;
+    this.height = DIMESNSION_GUN[this.playerIndicator].height;
   }
 
   getDimensions() {

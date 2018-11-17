@@ -130,6 +130,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
 
       if (indicator === NORMAL_GUN_INDICATOR || indicator === SHOT_GUN_INDICATOR) {
         playerGun = indicator;
+        player.updatePlayer(playerGun)
         playAudio(playerGun);
       }
 

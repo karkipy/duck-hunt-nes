@@ -21,9 +21,13 @@ window.onload = (e) => {
 
   let images = IMAGES;
   let sounds = SOUNDS;
-
   let totalAssets = images.length + sounds.length;
   populateClouds();
+
+  ctx.font = "50px eightBitFont";
+  ctx.fillText("0%",SCREEN_WIDTH / 2 - 50, SCREEN_HEIGHT / 2);
+
+
   images.forEach(v => {
     const { id } = v;
     const img = new Image();

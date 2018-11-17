@@ -73,12 +73,17 @@ class Menu {
     this.ctx.fillStyle = "white";
     this.ctx.fillText("HOW TO TURN ON SOUND ?", 230, 520);
 
+    this.ctx.font = "16px Arial";
+    this.ctx.fillStyle = "white";
+    this.ctx.fillText("chrome://flags/#autoplay-policy", 280, 560);
+
+
     this.ctx.font = "18px eightBitFont";
     this.ctx.fillStyle = "white";
     this.ctx.fillText("(Chrome has disabled auto sound play)", 520, 520);
 
-    this.ctx.fillText("1)  OPEN chrome://flags/#autoplay-policy", 270, 560);
-    this.ctx.fillText("2) SET NO USER GESTURED IS REQUIRED", 590, 560);
+    this.ctx.fillText("1)  OPEN", 135, 560);
+    this.ctx.fillText("2) SET NO USER GESTURED IS REQUIRED", 560, 560);
     this.ctx.fillText("3) RELAUNCH CHROME", 815, 560);
 
   }

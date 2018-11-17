@@ -10,6 +10,10 @@ const MENU_HEIGHT = 550;
 
 
 
+//Gun Indicators
+const NORMAL_GUN_INDICATOR = 111;
+const SHOT_GUN_INDICATOR = 1111;
+
 // Image Indicators
 const PLAYER_INDICATOR = 0;
 const SPRITE_INDICATOR = 1;
@@ -17,18 +21,20 @@ const CLOUD_INDICATOR = 2;
 
 // Images
 const SPRITES = 'images/sprites.png';
-const GUN_CURSOR = 'images/gun.png';
+const GUN_CURSOR = 'images/cursor.png';
 const CLOUD = 'images/cloud.png';
+const NORMAL_GUN_IMAGE = 'images/normal_gun.png';
+const SHOT_GUN_IMAGE = 'images/shot_gun.png';
 
 const IMAGES = [
   { id: SPRITE_INDICATOR, src : SPRITES },
   { id: PLAYER_INDICATOR, src: GUN_CURSOR },
   { id: CLOUD_INDICATOR, src: CLOUD },
+  { id: NORMAL_GUN_INDICATOR, src: NORMAL_GUN_IMAGE },
+  { id: SHOT_GUN_INDICATOR, src: SHOT_GUN_IMAGE }
 ];
 
-// Gun Indicators
-const NORMAL_GUN_INDICATOR = 0;
-const SHOT_GUN_INDICATOR = 1;
+// Sound Indicators
 const START_GAME_INDICATOR = 2;
 const DUCK_FLAP_INDICATOR = 3;
 const DUCK_QUACK_INDICATOR = 4;
@@ -60,10 +66,11 @@ const SOUNDS = [
 
 
 
-const DIMESNSION_GUN = [
-  { id: NORMAL_GUN_INDICATOR, width: 60, height: 60},
-  { id: SHOT_GUN_INDICATOR, width: 75, height: 75},
-]
+
+const DIMESNSION_GUN = {
+  [NORMAL_GUN_INDICATOR]: { width: 60, height: 60 },
+  [SHOT_GUN_INDICATOR]: { width: 75, height: 75},
+}
 
 const GUN_RESET = 1;
 

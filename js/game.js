@@ -5,6 +5,7 @@ let animationReq;
 let animationId = 0;
 
 let playerGun = NORMAL_GUN_INDICATOR;
+console.log(NORMAL_GUN_INDICATOR);
 
 const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
 
@@ -27,6 +28,7 @@ function clearAll(){
 
 function setAllObjectImage() { // Set Image after all the images are loaded use of single resource
   background.setImage();
+  menuObj.setImage();
   player.setImage();
   dog.setImage();
   duck.setImage();

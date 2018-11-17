@@ -34,7 +34,7 @@ window.onload = (e) => {
       if (totalAssets === assetsLoaded) {
         showMenu();
         const loadPercentage = Math.round(assetsLoaded / totalAssets);
-        ctx.font = "30px eightBitFont";
+        ctx.font = "30px Arial";
         ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
       }
     }
@@ -56,7 +56,7 @@ window.onload = (e) => {
       if (totalAssets === assetsLoaded) {
         showMenu();
         const loadPercentage = Math.round(assetsLoaded / totalAssets);
-        ctx.font = "30px eightBitFont";
+        ctx.font = "30px Arial";
         ctx.fillText(loadPercentage + "%",SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2);
 
       }

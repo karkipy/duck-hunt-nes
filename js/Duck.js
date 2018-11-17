@@ -131,7 +131,7 @@ class Duck {
     if (this.dead) {
       this.setDuckDeathMovements();
     } else {
-      // this.setDuckMovement();
+      this.setDuckMovement();
       this.setDimensions();
     }
     const updatedDimension = updateSpritePosition(this.renderDimension, this.x, this.y);

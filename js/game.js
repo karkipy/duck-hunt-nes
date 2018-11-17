@@ -16,7 +16,7 @@ let menuObj = new Menu(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
-let duck = new Duck(ctx, BLACK, LEFT);
+let duck = new Duck(ctx, BLACK, RIGHT);
 
 
 let player = new Player(ctx, playerGun);

@@ -78,8 +78,8 @@ const SOUNDS = [
 
 
 const DIMESNSION_GUN = {
-  [NORMAL_GUN_INDICATOR]: { width: 60, height: 60 },
-  [SHOT_GUN_INDICATOR]: { width: 80, height: 80},
+  [NORMAL_GUN_INDICATOR]: { width: 60, height: 60, time: 2 },
+  [SHOT_GUN_INDICATOR]: { width: 80, height: 80, time: 1.5 },
 }
 
 const GUN_RESET = 1;

@@ -12,6 +12,7 @@ class Player {
     this.barWidthContainer = 120;
     this.barHeight = 20;
     this.ready = true;
+    this.waitTime = DIMESNSION_GUN[this.playerIndicator].time;
   }
 
   setImage() {
@@ -22,6 +23,7 @@ class Player {
     this.playerIndicator = playerIndicator;
     this.width = DIMESNSION_GUN[this.playerIndicator].width;
     this.height = DIMESNSION_GUN[this.playerIndicator].height;
+    this.waitTime = DIMESNSION_GUN[this.playerIndicator].time;
   }
 
   getDimensions() {
@@ -43,7 +45,7 @@ class Player {
   checkBarWidth() {
     if(this.barAnimate > 0 && this.barAnimate < this.barWidthContainer && !this.ready) {
       this.barWidth =  this.barAnimate;
-      this.barAnimate += 3;
+      this.barAnimate += this.waitTime;
     } else {
       this.ready = true;
     }

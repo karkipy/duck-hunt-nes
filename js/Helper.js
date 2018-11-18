@@ -31,4 +31,5 @@ function playAudio(indicator) {
 
 function stopAudio(indicator) {
   loadedSounds[indicator].pause();
+  loadedSounds[indicator].currentTime = 0;
 }

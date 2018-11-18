@@ -94,5 +94,5 @@ const DUCK_DROP = 'DUCK_DROP';
 // Animation resources
 const DOG_ANIMATION_SEQUENCE = 12;
 const DUCK_ANIMATION_SEQUENCE = 8;
-
+const DUCK_RESPAWN = 12;
 const DUCK_LAND_HEIGHT = 400;

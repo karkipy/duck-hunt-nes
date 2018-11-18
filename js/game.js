@@ -8,16 +8,18 @@ let background = new BackGround(ctx);
 // Draw Menu
 let menuObj = new Menu(ctx);
 
+// Score object
+let score = new Score(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
 const totalWaves = 10;
 let currentWave = 0;
-let waveType = 0; // how manu ducks to populate  1 or 2
-let duck = new Duck(ctx, BLACK, RIGHT);
-let ducks = [duck]; // default one
+let waveType = 1; // how manu ducks to populate  1 or 2
+let ducks = []// default one
 let totalDucks = 0; // total ducks
 let ducksKilled = 0;
+
 
 
 let player = new Player(ctx, playerGun);
@@ -37,6 +39,7 @@ function randomizeColorDirection(c = Math.round(Math.random()), d = Math.round(M
 
 function populateDucks(number) {
   totalDucks = number * 10;
+  score.setTotalDucks(totalDucks);
   waveType = number;
   randomizeColorDirection();
   if(number === 1) {
@@ -47,19 +50,30 @@ function populateDucks(number) {
     randomizeColorDirection(DUCK_TYPES.indexOf(randomColor), DUCK_DIRECTION.indexOf(randomDirection));
     ducks.push(new Duck(ctx, randomColor, randomDirection));
   }
-
-  ducks.forEach(d => {
+  ducks.forEach(d => { // set Image here for ducks as it is initalized later on
     d.setImage();
   });
 }
 
+
+function checkForRespawn() {
+  let died = ducks.filter(d => d.dead).length;
+  let landed = ducks.filter(d => d.reset).length;
+  if(died === waveType && landed === waveType) {
+    // console.log('respawn the ducks');
+    ducks.forEach(d => {
+      randomizeColorDirection();
+      d.duckRespawn(randomColor, randomDirection);
+    })
+  }
+}
 
 function setAllObjectImage() { // Set Image after all the images are loaded use of single resource
   background.setImage();
   menuObj.setImage();
   player.setImage();
   dog.setImage();
-  duck.setImage();
+  score.setImage();
 }
 
 function drawBackGround() {
@@ -78,11 +92,10 @@ function drawAllObject() { // draw all the object here
     animateDogWalking();
     dog.drawImage();
   } else {
-    // duck.drawImage();
+    checkForRespawn();
     ducks.forEach(d => {
       d.drawImage();
     });
-
     background.drawTree();
     background.drawGround();
   }
@@ -161,12 +174,16 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
         game = true;
         menu = false;
         removeCursor();
+        if (ducks.length === 0) {
+          populateDucks(waveType);
+        }
       }
 
       if (gun_indicator === NORMAL_GUN_INDICATOR || gun_indicator === SHOT_GUN_INDICATOR) {
         playerGun = gun_indicator;
         ducks = [];
-        populateDucks(ducks_no);
+        waveType = ducks_no;
+        populateDucks(waveType);
         player.updatePlayer(playerGun)
         playAudio(playerGun);
       }

@@ -1,6 +1,10 @@
 class Duck {
   constructor(ctx, type, direction) {
     this.ctx = ctx;
+    this.initDuck(type, direction);
+  }
+
+  initDuck(type, direction) {
     this.type = type;
     this.x = direction === RIGHT ? 300 : 800;
     this.y = 350;
@@ -120,6 +124,10 @@ class Duck {
       width,
       height,
     }
+  }
+
+  duckRespawn(type, direction) {
+    this.initDuck(type, direction);
   }
 
   death() {

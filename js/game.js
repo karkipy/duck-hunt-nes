@@ -13,10 +13,11 @@ let menuObj = new Menu(ctx);
 const dog = new Dog();
 const totalWaves = 10;
 let currentWave = 0;
-let waveType = 0;
+let waveType = 0; // how manu ducks to populate  1 or 2
 let duck = new Duck(ctx, BLACK, RIGHT);
-let ducks = [];
-let totalDucks = 0;
+let ducks = [duck]; // default one
+let totalDucks = 0; // total ducks
+let ducksKilled = 0;
 
 
 let player = new Player(ctx, playerGun);
@@ -28,9 +29,9 @@ function clearAll(){
 }
 
 
-function randomizeColorDirection() {
-  randomColor = DUCK_TYPES[Math.round(Math.random())];
-  randomDirection = DUCK_DIRECTION[Math.round(Math.random())];
+function randomizeColorDirection(c = Math.round(Math.random()), d = Math.round(Math.random())) {
+  randomColor = DUCK_TYPES[[c + 1] % DUCK_TYPES.length ];
+  randomDirection = DUCK_DIRECTION[[d + 1] % DUCK_DIRECTION.length];
 }
 
 
@@ -43,9 +44,13 @@ function populateDucks(number) {
   } else {
     randomizeColorDirection();
     ducks.push(new Duck(ctx, randomColor, randomDirection));
-    randomizeColorDirection();
+    randomizeColorDirection(DUCK_TYPES.indexOf(randomColor), DUCK_DIRECTION.indexOf(randomDirection));
     ducks.push(new Duck(ctx, randomColor, randomDirection));
   }
+
+  ducks.forEach(d => {
+    d.setImage();
+  });
 }
 
 
@@ -73,7 +78,11 @@ function drawAllObject() { // draw all the object here
     animateDogWalking();
     dog.drawImage();
   } else {
-    duck.drawImage();
+    // duck.drawImage();
+    ducks.forEach(d => {
+      d.drawImage();
+    });
+
     background.drawTree();
     background.drawGround();
   }
@@ -100,6 +109,7 @@ function mainLoop() {
   }
   else if (game) {
     if(!init) {
+      populateDucks(2);
       setAllObjectImage();
       init = true;
 
@@ -150,12 +160,13 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
       if (gun_indicator === undefined) { // startGame
         game = true;
         menu = false;
-        populateDucks(ducks_no);
         removeCursor();
       }
 
       if (gun_indicator === NORMAL_GUN_INDICATOR || gun_indicator === SHOT_GUN_INDICATOR) {
         playerGun = gun_indicator;
+        ducks = [];
+        populateDucks(ducks_no);
         player.updatePlayer(playerGun)
         playAudio(playerGun);
       }
@@ -164,16 +175,20 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
 
     else if (player.ready && game) {
       let { playerX, playerY, playerRadius} = player.getDimensions();
-      let duckaDimension = duck.getAllDimensions();
-      let { x, y, width, height } = duckaDimension;
-      let { xmin, xmax, ymin, ymax } = DUCK_COLLISION[SHOT_GUN_INDICATOR][duck.duckDirection][duck.duckMovement];
-
-      if(y + ymin <= playerY && y + ymax >= playerY) {
-        if(x + xmin <= playerX && x + xmax >= playerX)
-        {
-          duck.death();
+      ducks.forEach((d, idx) =>{
+        let { x, y, width, height } = d.getAllDimensions();;
+        let { xmin, xmax, ymin, ymax } = DUCK_COLLISION[SHOT_GUN_INDICATOR][d.duckDirection][d.duckMovement];
+        if(y + ymin <= playerY && y + ymax >= playerY) {
+          if(x + xmin <= playerX && x + xmax >= playerX)
+          {
+            if(!d.dead) {
+              ducksKilled +=1;
+            }
+            d.death();
+          }
         }
-      }
+      })
+
       player.gunShot();
     }
   } catch(e) {

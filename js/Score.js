@@ -53,7 +53,7 @@ class Score {
     this.ctx.fillRect(20, this.y + 10 , this.width / 2, this.height - 20);
     this.ctx.font = "30px eightBitFont";
     this.ctx.fillStyle = 'white';
-    this.ctx.fillText("SCORE : " + this.ducksKilled * 100, 80 , this.y + 35);
+    this.ctx.fillText("SCORE : " + this.ducksKilled * 100, 90 , this.y + 35);
 
   }
 }

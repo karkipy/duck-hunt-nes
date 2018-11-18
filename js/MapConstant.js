@@ -192,93 +192,100 @@ const MAP_SPRITE_DUCKS = {
   [DUCK_TYPES[DUCK_RED]]: RED_DUCK_MAP,
 };
 
+const DUCK_ANIMATION = [
+  getSpriteObject(
+    DOG_SOURCE_X,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 2,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 3,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 4,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 4,
+    DOG_GROUND_Y + 10,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH_FLY,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 5,
+    DOG_GROUND_Y_FLY,
+    DOG_WIDTH_FLY,
+    DOG_HEIGHT,
+  ),
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH_FLY,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y_MAX,
+    DOG_WIDTH_FLY,
+    DOG_HEIGHT,
+  ),
+];
+
+const DUCK_ALIVE = getSpriteObject(0, 726, 26, 15, 0, 350, 26, 15);
+const DUCK_KILLED = getSpriteObject(0, 711, 26, 15, 0, 350, 26, 15);
+
 const MAP_SPRITE = {
   [GROUND_INDICATOR]: getSpriteObject(195, 0, 790, 200, 0, 350, SCREEN_WIDTH, 250),
   [TREE_INDICATOR]: getSpriteObject(0, 0, 180, 400, 100, 200, 160, 400),
-  [DOG_INDICATOR]: [
-    getSpriteObject(
-      DOG_SOURCE_X,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS,
-      DOG_GROUND_Y,
-      DOG_WIDTH,
-      DOG_HEIGHT),
-
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING,
-      DOG_GROUND_Y,
-      DOG_WIDTH,
-      DOG_HEIGHT),
-
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 2,
-      DOG_GROUND_Y,
-      DOG_WIDTH,
-      DOG_HEIGHT,
-    ),
-
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 3,
-      DOG_GROUND_Y,
-      DOG_WIDTH,
-      DOG_HEIGHT,
-    ),
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 4,
-      DOG_GROUND_Y,
-      DOG_WIDTH,
-      DOG_HEIGHT,
-    ),
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 5,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 4,
-      DOG_GROUND_Y + 10,
-      DOG_WIDTH,
-      DOG_HEIGHT,
-    ),
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH_FLY,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 5,
-      DOG_GROUND_Y_FLY,
-      DOG_WIDTH_FLY,
-      DOG_HEIGHT,
-    ),
-    getSpriteObject(
-      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 6.7,
-      DOG_SOURCE_Y,
-      DOG_SOURCE_WIDTH_FLY,
-      DOG_SOURCE_HEIGHT,
-      DOG_POS + DOG_SPACING * 7,
-      DOG_GROUND_Y_MAX,
-      DOG_WIDTH_FLY,
-      DOG_HEIGHT,
-    ),
-  ],
+  [DOG_INDICATOR]: DUCK_ANIMATION,
   [DUCK_INDICATOR]: MAP_SPRITE_DUCKS,
+  [DUCK_ALIVE_INDICATOR]: DUCK_ALIVE,
+  [DUCK_DEAD_INDICATOR]: DUCK_KILLED,
 };
 
 

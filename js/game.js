@@ -60,11 +60,16 @@ function checkForRespawn() {
   let died = ducks.filter(d => d.dead).length;
   let landed = ducks.filter(d => d.reset).length;
   if(died === waveType && landed === waveType) {
-    // console.log('respawn the ducks');
-    ducks.forEach(d => {
-      randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
-      d.duckRespawn(randomColor, randomDirection);
-    })
+    currentWave +=1;
+
+    if (currentWave > totalWaves) {
+      console.log('understand');
+    } else {
+      ducks.forEach(d => {
+        randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
+        d.duckRespawn(randomColor, randomDirection);
+      });
+    }
   }
 }
 
@@ -98,6 +103,7 @@ function drawAllObject() { // draw all the object here
     });
     background.drawTree();
     background.drawGround();
+    score.drawDucks();
   }
   player.drawCursor();
   player.drawBar();
@@ -177,6 +183,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
         if (ducks.length === 0) {
           populateDucks(waveType);
         }
+        currentWave = 1;
       }
 
       if (gun_indicator === NORMAL_GUN_INDICATOR || gun_indicator === SHOT_GUN_INDICATOR) {
@@ -200,6 +207,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
           {
             if(!d.dead) {
               ducksKilled +=1;
+              score.setDucksKilled();
             }
             d.death();
           }

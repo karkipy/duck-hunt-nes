@@ -21,3 +21,7 @@ const GROUND_INDICATOR = 10;
 const TREE_INDICATOR = 11;
 const DOG_INDICATOR = 12;
 const DUCK_INDICATOR = 13;
+
+// Duck symbol U = unkilled K = Killed
+const DUCK_ALIVE_INDICATOR = 14;
+const DUCK_DEAD_INDICATOR = 15;

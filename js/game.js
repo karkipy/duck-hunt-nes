@@ -62,7 +62,7 @@ function checkForRespawn() {
   if(died === waveType && landed === waveType) {
     // console.log('respawn the ducks');
     ducks.forEach(d => {
-      randomizeColorDirection();
+      randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
       d.duckRespawn(randomColor, randomDirection);
     })
   }

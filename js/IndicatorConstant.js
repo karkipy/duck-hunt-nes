@@ -1,3 +1,5 @@
+// Unique indicators for all the resources
+
 //Gun Indicators
 const NORMAL_GUN_INDICATOR = 0;
 const SHOT_GUN_INDICATOR = 1;

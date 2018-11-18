@@ -1,13 +1,8 @@
 const canvas = document.getElementById('gameContainer');
 const ctx = canvas.getContext('2d');
 
-let animationReq;
-let animationId = 0;
-
-let playerGun = NORMAL_GUN_INDICATOR;
-
-const spriteRenderer = new SpriteRenderer(ctx); // single object to draw the image
-
+// single object to draw the image
+const spriteRenderer = new SpriteRenderer(ctx);
 // Background of the game
 let background = new BackGround(ctx);
 // Draw Menu
@@ -16,12 +11,41 @@ let menuObj = new Menu(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
+const totalWaves = 10;
+let currentWave = 0;
+let waveType = 0;
 let duck = new Duck(ctx, BLACK, RIGHT);
+let ducks = [];
+let totalDucks = 0;
 
 
 let player = new Player(ctx, playerGun);
+let randomColor;
+let randomDirection;
+
 function clearAll(){
   ctx.clearRect(0, 0 , SCREEN_WIDTH, SCREEN_HEIGHT);
+}
+
+
+function randomizeColorDirection() {
+  randomColor = DUCK_TYPES[Math.round(Math.random())];
+  randomDirection = DUCK_DIRECTION[Math.round(Math.random())];
+}
+
+
+function populateDucks(number) {
+  totalDucks = number * 10;
+  waveType = number;
+  randomizeColorDirection();
+  if(number === 1) {
+    ducks.push(new Duck(ctx, randomColor, randomDirection));
+  } else {
+    randomizeColorDirection();
+    ducks.push(new Duck(ctx, randomColor, randomDirection));
+    randomizeColorDirection();
+    ducks.push(new Duck(ctx, randomColor, randomDirection));
+  }
 }
 
 
@@ -121,15 +145,17 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
 
     if(menu) {
       let mousePos = getMousePos(canvas, evt);
-      let indicator = setPlayerIndicator(mousePos);
+      let { gun_indicator, ducks_no } = getIndicatorAndDuck(mousePos);
 
-      if (indicator === undefined) { // startGame
+      if (gun_indicator === undefined) { // startGame
         game = true;
         menu = false;
+        populateDucks(ducks_no);
+        removeCursor();
       }
 
-      if (indicator === NORMAL_GUN_INDICATOR || indicator === SHOT_GUN_INDICATOR) {
-        playerGun = indicator;
+      if (gun_indicator === NORMAL_GUN_INDICATOR || gun_indicator === SHOT_GUN_INDICATOR) {
+        playerGun = gun_indicator;
         player.updatePlayer(playerGun)
         playAudio(playerGun);
       }

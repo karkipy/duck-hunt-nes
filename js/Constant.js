@@ -12,13 +12,6 @@ const MENU_YPOS_START = (SCREEN_HEIGHT - MENU_HEIGHT) / 2;
 const MENU_XPOS_END = MENU_XPOS_START + MENU_WIDTH;
 const MENU_YPOS_END = MENU_YPOS_START + MENU_HEIGHT;
 
-/// MENU POINTER
-const POINTER_DIMENSION = [ // S = Start E = End
-  {xS: 280, yS: 230, xE: 470, yE: 350, type: NORMAL_GUN_INDICATOR },
-  {xS: 500, yS: 230, xE: 740, yE: 350, type: SHOT_GUN_INDICATOR },
-  {xS: 425, yS: 420, xE: 545, yE: 470 },
-];
-
 
 // Images
 const SPRITES = 'images/sprites.png';

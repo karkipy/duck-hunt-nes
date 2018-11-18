@@ -24,6 +24,14 @@ const DIMESNSION_GUN = {
   [SHOT_GUN_INDICATOR]: { width: 80, height: 80, time: 1.5 },
 }
 
+/// MENU POINTER
+const POINTER_DIMENSION = [ // S = Start E = End
+  {xS: 280, yS: 230, xE: 470, yE: 350, gun_indicator: NORMAL_GUN_INDICATOR, ducks_no: 1 },
+  {xS: 500, yS: 230, xE: 740, yE: 350, gun_indicator: SHOT_GUN_INDICATOR, ducks_no: 2 },
+  {xS: 425, yS: 420, xE: 545, yE: 470 },
+];
+
+
 
 
 

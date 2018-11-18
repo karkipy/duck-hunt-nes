@@ -26,14 +26,23 @@ function setCursor(mouseObj) {
   }
 }
 
-function setPlayerIndicator(mouseObj) {
+function getIndicatorAndDuck(mouseObj) {
   let { x, y } = mouseObj;
   let result = null;
   POINTER_DIMENSION.forEach(m => {
-    let { xS, yS, xE, yE, type } = m;
+    let { xS, yS, xE, yE, gun_indicator, ducks_no } = m;
     if(x >= xS && x<=xE && y>=yS && y<=yE) {
-      result = type;
+      result = { gun_indicator, ducks_no };
     }
   });
   return result;
+}
+
+
+function removeCursor() {
+  canvas.style.cursor = 'none';
+}
+
+function defaultCursor() {
+  canvas.style.cursor = 'default';
 }

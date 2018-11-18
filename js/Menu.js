@@ -80,7 +80,7 @@ class Menu {
 
     this.ctx.font = "18px eightBitFont";
     this.ctx.fillStyle = "white";
-    this.ctx.fillText("(Chrome has disabled auto sound play)", 520, 520);
+    this.ctx.fillText("( CHROME HAS DISABLED AUTO SOUND PLAY. )", 510, 518);
 
     this.ctx.fillText("1)  OPEN", 135, 560);
     this.ctx.fillText("2) SET NO USER GESTURED IS REQUIRED", 560, 560);

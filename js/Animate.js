@@ -7,3 +7,21 @@ function animateDogWalking() {
     }
   }
 }
+
+
+function animateDogCatchingDuck() {
+  const { x, y, dogAnimationId } = dog.getPOS();
+  if (animationId % DUCK_CAUGHT_SEQUENCE === 0) {
+    if (dogAnimationId <  15) {
+      if (y > DUCK_LAND_HEIGHT) {
+        dog.toggleY();
+      } else {
+        dog.animateDown = true;
+        dog.toggleY();
+      }
+    } else {
+      dog.resetAnimation();
+    }
+  }
+  dog.drawCatch();
+}

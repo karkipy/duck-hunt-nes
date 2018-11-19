@@ -29,6 +29,7 @@ const DUCK_FLAP_SOUND = 'sounds/grab_flap.mp3';
 const DUCK_QUACK_SOUND = 'sounds/quack.mp3';
 const DUCK_FALL_SOUND = 'sounds/duckFall.mp3';
 const DUCK_LAND_SOUND = 'sounds/duckLand.mp3';
+const DUCK_CAUGHT_SOUND = 'sounds/duck_caught.mp3';
 
 
 
@@ -95,4 +96,8 @@ const DUCK_DROP = 'DUCK_DROP';
 const DOG_ANIMATION_SEQUENCE = 12;
 const DUCK_ANIMATION_SEQUENCE = 8;
 const DUCK_RESPAWN = 12;
-const DUCK_LAND_HEIGHT = 400;
+const DUCK_CAUGHT_SEQUENCE = 5;
+const DUCK_LAND_HEIGHT = 380;
+const DUCK_CAUGHT_HEIGHT = 380;
+
+

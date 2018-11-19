@@ -16,7 +16,13 @@ const SOUNDS = [
   { id: DUCK_QUACK_INDICATOR, src: DUCK_QUACK_SOUND },
   { id: DUCK_FALL_INDICATOR, src: DUCK_FALL_SOUND },
   { id: DUCK_LAND_INDICATOR, src: DUCK_LAND_SOUND },
+  { id: DUCK_CAUGHT_INDICATOR, src: DUCK_CAUGHT_SOUND },
 ];
+
+const DUCK_NUMBERS = {
+  [NORMAL_GUN_INDICATOR]: 1,
+  [SHOT_GUN_INDICATOR]: 2,
+}
 
 // GUN
 const DIMESNSION_GUN = {
@@ -26,8 +32,14 @@ const DIMESNSION_GUN = {
 
 /// MENU POINTER
 const POINTER_DIMENSION = [ // S = Start E = End
-  {xS: 280, yS: 230, xE: 470, yE: 350, gun_indicator: NORMAL_GUN_INDICATOR, ducks_no: 1 },
-  {xS: 500, yS: 230, xE: 740, yE: 350, gun_indicator: SHOT_GUN_INDICATOR, ducks_no: 2 },
+  { xS: 280, yS: 230, xE: 470, yE: 350,
+    gun_indicator: NORMAL_GUN_INDICATOR,
+    ducks_no: DUCK_NUMBERS[NORMAL_GUN_INDICATOR],
+  },
+  {xS: 500, yS: 230, xE: 740, yE: 350,
+    gun_indicator: SHOT_GUN_INDICATOR,
+    ducks_no: DUCK_NUMBERS[SHOT_GUN_INDICATOR],
+  },
   {xS: 425, yS: 420, xE: 545, yE: 470 },
 ];
 
@@ -283,6 +295,10 @@ const MAP_SPRITE = {
   [GROUND_INDICATOR]: getSpriteObject(195, 0, 790, 200, 0, 350, SCREEN_WIDTH, 250),
   [TREE_INDICATOR]: getSpriteObject(0, 0, 180, 400, 100, 200, 160, 400),
   [DOG_INDICATOR]: DUCK_ANIMATION,
+  [DUCK_CAUGHT_INDICATOR]: {
+    [DUCK_NUMBERS[NORMAL_GUN_INDICATOR]] : getSpriteObject(155, 330, 110, 100, 300, 380, 110, 100),
+    [DUCK_NUMBERS[SHOT_GUN_INDICATOR]] : getSpriteObject(265, 330, 145, 100, 400, 380, 145, 100),
+  },
   [DUCK_INDICATOR]: MAP_SPRITE_DUCKS,
   [DUCK_ALIVE_INDICATOR]: DUCK_ALIVE,
   [DUCK_DEAD_INDICATOR]: DUCK_KILLED,

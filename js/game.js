@@ -20,6 +20,7 @@ let ducks = []// default one
 let totalDucks = 0; // total ducks
 let ducksKilled = 0;
 
+dog.setDimensionsDuck(1);
 
 
 let player = new Player(ctx, playerGun);
@@ -60,15 +61,17 @@ function checkForRespawn() {
   let died = ducks.filter(d => d.dead).length;
   let landed = ducks.filter(d => d.reset).length;
   if(died === waveType && landed === waveType) {
-    currentWave +=1;
-
-    if (currentWave > totalWaves) {
-      console.log('understand');
-    } else {
-      ducks.forEach(d => {
-        randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
-        d.duckRespawn(randomColor, randomDirection);
-      });
+    if (animationId % 60 === 0) {
+      currentWave +=1;
+      dog.setShow();
+      if (currentWave > totalWaves) {
+        console.log('Game Over');
+      } else {
+        ducks.forEach(d => {
+          randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
+          d.duckRespawn(randomColor, randomDirection);
+        });
+      }
     }
   }
 }
@@ -98,9 +101,13 @@ function drawAllObject() { // draw all the object here
     dog.drawImage();
   } else {
     checkForRespawn();
-    ducks.forEach(d => {
-      d.drawImage();
-    });
+    if(dog.show) {
+      animateDogCatchingDuck();
+    } else {
+      ducks.forEach(d => {
+        d.drawImage();
+      });
+    }
     background.drawTree();
     background.drawGround();
     score.drawDucks();
@@ -128,7 +135,7 @@ function mainLoop() {
   }
   else if (game) {
     if(!init) {
-      populateDucks(2);
+      populateDucks(1);
       setAllObjectImage();
       init = true;
 
@@ -190,9 +197,10 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
         playerGun = gun_indicator;
         ducks = [];
         waveType = ducks_no;
-        populateDucks(waveType);
-        player.updatePlayer(playerGun)
         playAudio(playerGun);
+        populateDucks(waveType);
+        dog.setDimensionsDuck(waveType);
+        player.updatePlayer(playerGun)
       }
 
     }
@@ -208,6 +216,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
             if(!d.dead) {
               ducksKilled +=1;
               score.setDucksKilled();
+              dog.setXYPOS(x, y);
             }
             d.death();
           }

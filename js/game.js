@@ -97,6 +97,7 @@ function drawAllObject() { // draw all the object here
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     background.drawTree();
     background.drawGround();
+    playAudio(START_GAME_INDICATOR);
     animateDogWalking();
     dog.drawImage();
   } else {
@@ -111,9 +112,9 @@ function drawAllObject() { // draw all the object here
     background.drawTree();
     background.drawGround();
     score.drawDucks();
+    player.drawCursor();
+    player.drawBar();
   }
-  player.drawCursor();
-  player.drawBar();
 }
 
 

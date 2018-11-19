@@ -17,6 +17,7 @@ const SOUNDS = [
   { id: DUCK_FALL_INDICATOR, src: DUCK_FALL_SOUND },
   { id: DUCK_LAND_INDICATOR, src: DUCK_LAND_SOUND },
   { id: DUCK_CAUGHT_INDICATOR, src: DUCK_CAUGHT_SOUND },
+  { id: DOG_BARK_INDICATOR, src: DOG_BARK_SOUND },
 ];
 
 const DUCK_NUMBERS = {
@@ -246,12 +247,239 @@ const DUCK_ANIMATION = [
     DOG_WIDTH,
     DOG_HEIGHT,
   ),
+  //Added
+  getSpriteObject(
+    DOG_SOURCE_X,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 4,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 5,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 6,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  //smell part
+
   getSpriteObject(
     DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
     DOG_SOURCE_Y,
     DOG_SOURCE_WIDTH,
     DOG_SOURCE_HEIGHT,
-    DOG_POS + DOG_SPACING * 4,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 7,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+
+  // Move some more
+  getSpriteObject(
+    DOG_SOURCE_X,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 8,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 9,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 10,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 11,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 12,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 13,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 2,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 14,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 3,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 15,
+    DOG_GROUND_Y,
+    DOG_WIDTH,
+    DOG_HEIGHT,
+  ),
+
+
+    //smell part next
+
+    getSpriteObject(
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 15,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+
+    getSpriteObject(
+      DOG_SOURCE_X,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 15,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+
+    getSpriteObject(
+      DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 15,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+
+    getSpriteObject(
+      DOG_SOURCE_X,
+      DOG_SOURCE_Y,
+      DOG_SOURCE_WIDTH,
+      DOG_SOURCE_HEIGHT,
+      DOG_POS + DOG_SPACING * 15,
+      DOG_GROUND_Y,
+      DOG_WIDTH,
+      DOG_HEIGHT,
+    ),
+
+
+
+  // The Smell Part
+  getSpriteObject(
+    DOG_SOURCE_X + DOG_SOURCE_WIDTH * 4,
+    DOG_SOURCE_Y,
+    DOG_SOURCE_WIDTH,
+    DOG_SOURCE_HEIGHT,
+    DOG_POS + DOG_SPACING * 15,
     DOG_GROUND_Y,
     DOG_WIDTH,
     DOG_HEIGHT,
@@ -261,7 +489,7 @@ const DUCK_ANIMATION = [
     DOG_SOURCE_Y,
     DOG_SOURCE_WIDTH,
     DOG_SOURCE_HEIGHT,
-    DOG_POS + DOG_SPACING * 4,
+    DOG_POS + DOG_SPACING * 15,
     DOG_GROUND_Y + 10,
     DOG_WIDTH,
     DOG_HEIGHT,
@@ -271,7 +499,7 @@ const DUCK_ANIMATION = [
     DOG_SOURCE_Y,
     DOG_SOURCE_WIDTH_FLY,
     DOG_SOURCE_HEIGHT,
-    DOG_POS + DOG_SPACING * 5,
+    DOG_POS + DOG_SPACING * 25,
     DOG_GROUND_Y_FLY,
     DOG_WIDTH_FLY,
     DOG_HEIGHT,
@@ -281,7 +509,7 @@ const DUCK_ANIMATION = [
     DOG_SOURCE_Y,
     DOG_SOURCE_WIDTH_FLY,
     DOG_SOURCE_HEIGHT,
-    DOG_POS + DOG_SPACING * 7,
+    DOG_POS + DOG_SPACING * 28,
     DOG_GROUND_Y_MAX,
     DOG_WIDTH_FLY,
     DOG_HEIGHT,

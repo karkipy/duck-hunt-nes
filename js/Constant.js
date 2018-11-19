@@ -30,6 +30,7 @@ const DUCK_QUACK_SOUND = 'sounds/quack.mp3';
 const DUCK_FALL_SOUND = 'sounds/duckFall.mp3';
 const DUCK_LAND_SOUND = 'sounds/duckLand.mp3';
 const DUCK_CAUGHT_SOUND = 'sounds/duck_caught.mp3';
+const DOG_BARK_SOUND = 'sounds/bark.mp3';
 
 
 
@@ -68,7 +69,7 @@ const DOG_GROUND_Y_MAX = 300;
 const DOG_GROUND_Y_MIN = 320;
 const DOG_GROUND_Y_FLY = 380;
 const DOG_POS = 0;
-const DOG_SPACING = 50;
+const DOG_SPACING = 10;
 const DOG_SOURCE_X = 194;
 const DOG_SOURCE_Y = 210;
 

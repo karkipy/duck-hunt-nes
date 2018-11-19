@@ -3,6 +3,10 @@ function animateDogWalking() {
   if (animationId % (DOG_ANIMATION_SEQUENCE) === 0) {
     animateDogId +=1;
     if (animateDogId < MAP_SPRITE[DOG_INDICATOR].length) {
+      if (animateDogId === MAP_SPRITE[DOG_INDICATOR].length - 2)
+      {
+        playAudio(DOG_BARK_INDICATOR);
+      }
       dog.setDimensions();
     }
   }

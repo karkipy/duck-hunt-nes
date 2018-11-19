@@ -66,6 +66,9 @@ function checkForRespawn() {
       dog.setShow();
       if (currentWave > totalWaves) {
         console.log('Game Over');
+        dog.resetAnimation();
+        // gameOver = true;
+        // game = false;
       } else {
         ducks.forEach(d => {
           randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );

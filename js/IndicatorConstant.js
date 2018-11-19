@@ -30,3 +30,4 @@ const DUCK_DEAD_INDICATOR = 15;
 // Add Remaining indicators
 const DUCK_CAUGHT_INDICATOR = 16;
 const DOG_BARK_INDICATOR = 17;
+const NUKE_INDICATOR = 18;

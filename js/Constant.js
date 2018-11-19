@@ -31,6 +31,7 @@ const DUCK_FALL_SOUND = 'sounds/duckFall.mp3';
 const DUCK_LAND_SOUND = 'sounds/duckLand.mp3';
 const DUCK_CAUGHT_SOUND = 'sounds/duck_caught.mp3';
 const DOG_BARK_SOUND = 'sounds/bark.mp3';
+const NUKE_SOUND = 'sounds/nuke_sound.mp3';
 
 
 

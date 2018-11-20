@@ -29,3 +29,23 @@ function animateDogCatchingDuck() {
   }
   dog.drawCatch();
 }
+
+
+
+function animateDogCatchingDuckLast() {
+  const { x, y, dogAnimationId } = dog.getPOS();
+  if (animationId % DUCK_CAUGHT_SEQUENCE === 0) {
+    if (dogAnimationId <  15) {
+      if (y > DUCK_LAND_HEIGHT) {
+        dog.toggleY();
+      } else {
+        dog.animateDown = true;
+        dog.toggleY();
+      }
+      return false;
+    } else {
+      dog.resetAnimation();
+    }
+  }
+  dog.drawCatch();
+}

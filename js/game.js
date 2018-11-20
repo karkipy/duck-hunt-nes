@@ -13,13 +13,6 @@ let score = new Score(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
-const totalWaves = 10;
-let currentWave = 0;
-let waveType = 1; // how manu ducks to populate  1 or 2
-let ducks = []// default one
-let totalDucks = 0; // total ducks
-let ducksKilled = 0;
-
 dog.setDimensionsDuck(1);
 
 
@@ -63,13 +56,20 @@ function checkForRespawn() {
   if(died === waveType && landed === waveType) {
     if (animationId % 60 === 0) {
       currentWave +=1;
-      dog.setShow();
+
       if (currentWave > totalWaves) {
-        console.log('Game Over');
-        dog.resetAnimation();
+        if (animateLastDuck) {
+          dog.setShow();
+          let something  =  animateDogCatchingDuckLast();
+          animateLastDuck = something;
+        } else {
+          // Draw The nuke Part
+          dog.resetAnimation();
+        }
         // gameOver = true;
         // game = false;
       } else {
+        dog.setShow();
         ducks.forEach(d => {
           randomizeColorDirection(DUCK_TYPES.indexOf(randomColor),DUCK_DIRECTION.indexOf(randomDirection) );
           d.duckRespawn(randomColor, randomDirection);
@@ -191,9 +191,8 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
         game = true;
         menu = false;
         removeCursor();
-        if (ducks.length === 0) {
-          populateDucks(waveType);
-        }
+        ducks = [];
+        populateDucks(waveType);
         currentWave = 1;
       }
 

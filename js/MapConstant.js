@@ -18,6 +18,7 @@ const SOUNDS = [
   { id: DUCK_LAND_INDICATOR, src: DUCK_LAND_SOUND },
   { id: DUCK_CAUGHT_INDICATOR, src: DUCK_CAUGHT_SOUND },
   { id: DOG_BARK_INDICATOR, src: DOG_BARK_SOUND },
+  { id: NUKE_INDICATOR, src: NUKE_SOUND },
 ];
 
 const DUCK_NUMBERS = {
@@ -45,6 +46,9 @@ const POINTER_DIMENSION = [ // S = Start E = End
 ];
 
 
+const NUKE_DIMENSION = {
+  xS: 345 ,yS: 300, xE: 465, yE: 360,
+};
 
 
 

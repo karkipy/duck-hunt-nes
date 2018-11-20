@@ -20,3 +20,5 @@ let ducks = []// default one
 let totalDucks = 0; // total ducks
 let ducksKilled = 0;
 let animateLastDuck = true;
+
+let nukeAnimation = false;

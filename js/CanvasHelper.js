@@ -39,6 +39,30 @@ function getIndicatorAndDuck(mouseObj) {
 }
 
 
+function setNukeAnimation(mouseObj) {
+  let { x, y } = mouseObj;
+  let result = false;
+  let { xS, yS, xE, yE } = NUKE_DIMENSION;
+  if(x >= xS && x<=xE && y>=yS && y<=yE) {
+    result = true;
+  }
+  return result;
+}
+
+function setNukeCursor(mouseObj) {
+  let { x, y } = mouseObj;
+  let { xS, yS, xE, yE } = NUKE_DIMENSION;
+  if(x >= xS && x<=xE && y>=yS && y<=yE) {
+    setCursor();
+  } else {
+    defaultCursor();
+  }
+}
+
+function setCursor() {
+  canvas.style.cursor = 'pointer';
+}
+
 function removeCursor() {
   canvas.style.cursor = 'none';
 }

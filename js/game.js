@@ -11,6 +11,10 @@ let menuObj = new Menu(ctx);
 // Score object
 let score = new Score(ctx);
 
+// game over object
+let gameOverObj = new GameOver(ctx);
+
+
 // Player, Dog and Ducks
 const dog = new Dog();
 dog.setDimensionsDuck(1);
@@ -63,8 +67,9 @@ function checkForRespawn() {
           let something  =  animateDogCatchingDuckLast();
           animateLastDuck = something;
         } else {
-          // Draw The nuke Part
           dog.resetAnimation();
+          game = false;
+          gameOver = true;
         }
         // gameOver = true;
         // game = false;
@@ -95,7 +100,6 @@ function drawBackGround() {
 
 function drawAllObject() { // draw all the object here
   background.drawSky();
-
   // Duck and dog later are to be drawn before tree and ground
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     background.drawTree();
@@ -104,19 +108,35 @@ function drawAllObject() { // draw all the object here
     animateDogWalking();
     dog.drawImage();
   } else {
-    checkForRespawn();
-    if(dog.show) {
-      animateDogCatchingDuck();
-    } else {
-      ducks.forEach(d => {
-        d.drawImage();
-      });
+
+    if (game) {
+      checkForRespawn();
+      if(dog.show) {
+        animateDogCatchingDuck();
+      } else {
+        ducks.forEach(d => {
+          d.drawImage();
+        });
+      }
     }
+
+    if(gameOver) {
+      if(nukeAnimation) {
+        playAudio(NUKE_INDICATOR);
+      } else {
+        gameOverObj.drawNuke();
+      }
+    }
+
     background.drawTree();
     background.drawGround();
     score.drawDucks();
-    player.drawCursor();
-    player.drawBar();
+    if (game) {
+      player.drawCursor();
+      player.drawBar();
+    }
+
+
   }
 }
 
@@ -137,7 +157,7 @@ function mainLoop() {
       menuObj.drawMenu();
     }
   }
-  else if (game) {
+  else if (game || gameOver) {
     if(!init) {
       populateDucks(1);
       setAllObjectImage();
@@ -174,9 +194,13 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
     }
 
   }
+  if(game) {
+    player.setDirections(mousePos.x, mousePos.y);
+  }
 
-
-  player.setDirections(mousePos.x, mousePos.y);
+  if(gameOver) {
+    setNukeCursor(mousePos);
+  }
 
 }, false);
 
@@ -186,7 +210,6 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
     if(menu) {
       let mousePos = getMousePos(canvas, evt);
       let { gun_indicator, ducks_no } = getIndicatorAndDuck(mousePos);
-
       if (gun_indicator === undefined) { // startGame
         game = true;
         menu = false;
@@ -228,6 +251,14 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
 
       player.gunShot();
     }
+
+    else if(gameOver) {
+      let mousePos = getMousePos(canvas, evt);
+      if (setNukeAnimation(mousePos)) {
+        nukeAnimation = true;
+      }
+    }
+
   } catch(e) {
     console.log(e);
   }

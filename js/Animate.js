@@ -42,6 +42,7 @@ function animateDogCatchingDuckLast() {
         dog.animateDown = true;
         dog.toggleY();
       }
+      canvas.style.cursor = 'default';
       return false;
     } else {
       dog.resetAnimation();

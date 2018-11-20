@@ -4,7 +4,8 @@ const IMAGES = [
   { id: PLAYER_INDICATOR, src: GUN_CURSOR },
   { id: CLOUD_INDICATOR, src: CLOUD },
   { id: NORMAL_GUN_INDICATOR, src: NORMAL_GUN_IMAGE },
-  { id: SHOT_GUN_INDICATOR, src: SHOT_GUN_IMAGE }
+  { id: SHOT_GUN_INDICATOR, src: SHOT_GUN_IMAGE },
+  { id: NUKE_INDICATOR, src: NUKE_IMAGE },
 ];
 
 // Register All Sounds

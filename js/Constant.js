@@ -19,6 +19,7 @@ const GUN_CURSOR = 'images/cursor.png';
 const CLOUD = 'images/cloud.png';
 const NORMAL_GUN_IMAGE = 'images/normal_gun.png';
 const SHOT_GUN_IMAGE = 'images/shot_gun.png';
+const NUKE_IMAGE = 'images/nuke_assets.png';
 
 
 // Sounds

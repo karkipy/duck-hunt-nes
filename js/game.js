@@ -14,10 +14,13 @@ let score = new Score(ctx);
 // game over object
 let gameOverObj = new GameOver(ctx);
 
+// Nuke object
+
+let nukeObject = new Nuke(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
-dog.setDimensionsDuck(1);
+dog.setDimensionsDuck(1); // which type of duck to be catched 1 or 2
 
 
 let player = new Player(ctx, playerGun);
@@ -90,6 +93,7 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
   player.setImage();
   dog.setImage();
   score.setImage();
+  nukeObject.setImage();
 }
 
 function drawBackGround() {
@@ -105,6 +109,7 @@ function drawAllObject() { // draw all the object here
     background.drawTree();
     background.drawGround();
     playAudio(START_GAME_INDICATOR);
+    nukeObject.nukeDrawImage();
     animateDogWalking();
     dog.drawImage();
   } else {
@@ -123,6 +128,7 @@ function drawAllObject() { // draw all the object here
     if(gameOver) {
       if(nukeAnimation) {
         playAudio(NUKE_INDICATOR);
+        nukeObject.nukeDrawImage();
       } else {
         gameOverObj.drawNuke();
       }

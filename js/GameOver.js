@@ -14,7 +14,7 @@ class GameOver {
 
     this.ctx.font = "50px eightBitFont";
     this.ctx.fillStyle = 'white';
-    this.ctx.fillText("Nuke 'Em  ? ", this.x + 70, this.y + 30);
+    this.ctx.fillText("Play  'Again  ? ", this.x + 240, this.y + 50);
 
     const {
       xS ,yS, xE, yE
@@ -23,7 +23,7 @@ class GameOver {
 
     this.ctx.font = "40px eightBitFont";
     this.ctx.fillStyle = 'black';
-    this.ctx.fillText('YES', this.x + 70 + 30 , this.y + 150 + 30);
+    this.ctx.fillText('YES', xS  + 60, yS + 40);
 
 
   }

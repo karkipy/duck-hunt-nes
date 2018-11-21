@@ -96,7 +96,7 @@ const DUCK_DROP = 'DUCK_DROP';
 
 
 // Animation resources
-const DOG_ANIMATION_SEQUENCE = 5; // reet to 12
+const DOG_ANIMATION_SEQUENCE = 12; // reset to 12
 const DUCK_ANIMATION_SEQUENCE = 8;
 const DUCK_RESPAWN = 12;
 const DUCK_CAUGHT_SEQUENCE = 5;

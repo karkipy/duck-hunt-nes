@@ -48,7 +48,7 @@ const POINTER_DIMENSION = [ // S = Start E = End
 
 
 const NUKE_DIMENSION = {
-  xS: 345 ,yS: 300, xE: 465, yE: 360,
+  xS: 430 ,yS: 300, xE: 550, yE: 360,
 };
 
 
@@ -524,6 +524,24 @@ const DUCK_ANIMATION = [
 const DUCK_ALIVE = getSpriteObject(0, 726, 26, 15, 0, 350, 26, 15);
 const DUCK_KILLED = getSpriteObject(0, 711, 26, 15, 0, 350, 26, 15);
 
+
+const NUKE_ANIMATION = [
+  getSpriteObject(0, 0 , 80, 80 , 250, 200, 95, 95),
+  getSpriteObject(160, 0 , 80, 80 , 350, 200, 95, 95),
+  getSpriteObject(80, 0 , 80, 80 , 450, 200, 95, 95),
+  getSpriteObject(160, 0 , 80, 80 , 550, 200, 95, 95),
+  getSpriteObject(235, 0 , 80, 80 , 650, 200, 100, 95),
+  getSpriteObject(235 + 75 , 0 , 80, 80 , 750, 200, 90, 90),
+  getSpriteObject(235 + 75 * 2 , 0 , 80, 80 , 850, 200, 90, 90),
+  getSpriteObject(235 + 77 * 3 , 0 , 80, 80 , 250, 0, 85, 88),
+  getSpriteObject(235 + 78 * 4 , 0 , 80, 80 , 350, 0, 85, 88),
+  getSpriteObject(235 + 80 * 5 , 0 , 85, 80 , 450, 0, 85, 85),
+  getSpriteObject(235 + 81 * 6 , 0 , 80, 80 , 550, 0, 90, 90),
+  getSpriteObject(235 + 82 * 7 , 0 , 113, 80 , 650, 0, 115, 90),
+  getSpriteObject(235 + 87 * 8 , 0 , 135, 80 , 750, 0, 135, 90),
+  getSpriteObject(235 + 82 * 10 , 0 , 135, 80 , 900, 0, 135, 90),
+];
+
 const MAP_SPRITE = {
   [GROUND_INDICATOR]: getSpriteObject(195, 0, 790, 200, 0, 350, SCREEN_WIDTH, 250),
   [TREE_INDICATOR]: getSpriteObject(0, 0, 180, 400, 100, 200, 160, 400),
@@ -535,6 +553,7 @@ const MAP_SPRITE = {
   [DUCK_INDICATOR]: MAP_SPRITE_DUCKS,
   [DUCK_ALIVE_INDICATOR]: DUCK_ALIVE,
   [DUCK_DEAD_INDICATOR]: DUCK_KILLED,
+  [NUKE_INDICATOR]: NUKE_ANIMATION,
 };
 
 

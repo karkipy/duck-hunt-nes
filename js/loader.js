@@ -1,6 +1,6 @@
 function showMenu(){
-  // menu = true;
-  game = true;
+  menu = true;
+  // game = true;
   canvas.style.cursor = 'none';
 }
 

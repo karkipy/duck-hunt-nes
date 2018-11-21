@@ -38,6 +38,19 @@ function randomizeColorDirection(c = Math.round(Math.random()), d = Math.round(M
 }
 
 
+function resetWholeGame() {
+  menu = true;
+  game = false;
+  gameOver = false;
+  duck=  [];
+  animateLastDuck= true;
+  score.ducksKilled = 0;
+  animateDogId = 0;
+  animationId = 0;
+  dog.reset();
+}
+
+
 function populateDucks(number) {
   totalDucks = number * 10;
   score.setTotalDucks(totalDucks);
@@ -63,7 +76,6 @@ function checkForRespawn() {
   if(died === waveType && landed === waveType) {
     if (animationId % 60 === 0) {
       currentWave +=1;
-
       if (currentWave > totalWaves) {
         if (animateLastDuck) {
           dog.setShow();
@@ -104,12 +116,12 @@ function drawBackGround() {
 
 function drawAllObject() { // draw all the object here
   background.drawSky();
-  // Duck and dog later are to be drawn before tree and ground
+  // gameOverObj.drawNuke();
+ // Duck and dog later are to be drawn before tree and ground
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     background.drawTree();
     background.drawGround();
     playAudio(START_GAME_INDICATOR);
-    nukeObject.nukeDrawImage();
     animateDogWalking();
     dog.drawImage();
   } else {
@@ -127,8 +139,8 @@ function drawAllObject() { // draw all the object here
 
     if(gameOver) {
       if(nukeAnimation) {
-        playAudio(NUKE_INDICATOR);
-        nukeObject.nukeDrawImage();
+        // playAudio(NUKE_INDICATOR);
+        // nukeObject.nukeDrawImage();
       } else {
         gameOverObj.drawNuke();
       }
@@ -261,7 +273,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
     else if(gameOver) {
       let mousePos = getMousePos(canvas, evt);
       if (setNukeAnimation(mousePos)) {
-        nukeAnimation = true;
+        resetWholeGame();
       }
     }
 

@@ -1,7 +1,11 @@
-Open chrome://flags/#autoplay-policy
+https://karkipy.github.io/duck-hunt-nes/
+
+For Sounds :
+
+1) Open chrome://flags/#autoplay-policy
 
 
-Setting No user gesture is required
+2) Setting No user gesture is required
 
 
-Relaunch Chrome
+3) Relaunch Chrome

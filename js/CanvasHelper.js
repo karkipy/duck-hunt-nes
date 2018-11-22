@@ -39,7 +39,7 @@ function getIndicatorAndDuck(mouseObj) {
 }
 
 
-function setNukeAnimation(mouseObj) {
+function getGameOverRes(mouseObj) {
   let { x, y } = mouseObj;
   let result = false;
   let { xS, yS, xE, yE } = NUKE_DIMENSION;
@@ -49,7 +49,7 @@ function setNukeAnimation(mouseObj) {
   return result;
 }
 
-function setNukeCursor(mouseObj) {
+function setGameOverCursor(mouseObj) {
   let { x, y } = mouseObj;
   let { xS, yS, xE, yE } = NUKE_DIMENSION;
   if(x >= xS && x<=xE && y>=yS && y<=yE) {

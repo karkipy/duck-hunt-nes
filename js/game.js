@@ -16,7 +16,7 @@ let gameOverObj = new GameOver(ctx);
 
 // Nuke object
 
-let nukeObject = new Nuke(ctx);
+// let nukeObject = new Nuke(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();
@@ -105,7 +105,6 @@ function setAllObjectImage() { // Set Image after all the images are loaded use 
   player.setImage();
   dog.setImage();
   score.setImage();
-  nukeObject.setImage();
 }
 
 function drawBackGround() {
@@ -116,7 +115,7 @@ function drawBackGround() {
 
 function drawAllObject() { // draw all the object here
   background.drawSky();
-  // gameOverObj.drawNuke();
+
  // Duck and dog later are to be drawn before tree and ground
   if(animateDogId <= MAP_SPRITE[DOG_INDICATOR].length ) { // call animation logic
     background.drawTree();
@@ -138,12 +137,9 @@ function drawAllObject() { // draw all the object here
     }
 
     if(gameOver) {
-      if(nukeAnimation) {
-        // playAudio(NUKE_INDICATOR);
-        // nukeObject.nukeDrawImage();
-      } else {
-        gameOverObj.drawNuke();
-      }
+
+      gameOverObj.drawMenu();
+
     }
 
     background.drawTree();
@@ -217,7 +213,7 @@ canvas.addEventListener('mousemove', function(evt) { // cursor
   }
 
   if(gameOver) {
-    setNukeCursor(mousePos);
+    setGameOverCursor(mousePos);
   }
 
 }, false);
@@ -272,7 +268,7 @@ canvas.addEventListener('click', function(evt) { //shoot the damn thing
 
     else if(gameOver) {
       let mousePos = getMousePos(canvas, evt);
-      if (setNukeAnimation(mousePos)) {
+      if (getGameOverRes(mousePos)) {
         resetWholeGame();
       }
     }

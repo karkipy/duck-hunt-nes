@@ -7,7 +7,7 @@ class GameOver {
     this.y = SCREEN_HEIGHT / 2 - this.height/2;
   }
 
-  drawNuke() {
+  drawMenu() {
     drawBorderLine(this.ctx, this.x, this.y, this.width, this.height, 3, 'white');
     this.ctx.fillStyle = 'black';
     this.ctx.fillRect(this.x, this.y, this.width, this.height);

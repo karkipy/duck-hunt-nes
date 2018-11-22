@@ -14,9 +14,6 @@ let score = new Score(ctx);
 // game over object
 let gameOverObj = new GameOver(ctx);
 
-// Nuke object
-
-// let nukeObject = new Nuke(ctx);
 
 // Player, Dog and Ducks
 const dog = new Dog();

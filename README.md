@@ -1,4 +1,4 @@
-https://karkipy.github.io/duck-hunt-nes/
+http://bit.ly/2VKF41A
 
 For Sounds :
 
